@@ -29,8 +29,10 @@ export default function Hero() {
               color: "var(--ink-dim)",
             }}
           >
-            MedStack OS, research systems, and practical career tools for ambitious medical students and
-            junior doctors building <strong style={{ color: "var(--paper)", fontWeight: 600 }}>competitive medical careers</strong>.
+            MedStack OS and ResearchStack help ambitious medical students and junior doctors organise their
+            career, build research output, and create a{" "}
+            <strong style={{ color: "var(--paper)", fontWeight: 600 }}>CV that stands out</strong> for competitive
+            medical pathways.
           </p>
 
           <div style={{ display: "flex", gap: 12, marginTop: 30, justifyContent: "center", flexWrap: "wrap" }}>
@@ -41,7 +43,7 @@ export default function Hero() {
               <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden style={{ marginRight: -1 }}>
                 <path d="M5 3.5l7 4.5-7 4.5z" fill="currentColor" />
               </svg>
-              Preview MedStack OS
+              Preview the workspace
             </a>
           </div>
 

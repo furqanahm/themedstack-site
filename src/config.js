@@ -14,7 +14,7 @@ export const PRICING = {
   currency: "AUD",
   founding: "$497",
   regular: "$997",
-  note: "Founding price — limited seats",
+  note: "Limited founding seats",
   buyCta: "Get founding access",
   waitlistCta: "Join the founding waitlist",
   checkoutUrl: "", // e.g. "https://buy.stripe.com/..."  (empty = placeholder)

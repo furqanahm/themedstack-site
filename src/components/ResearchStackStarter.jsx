@@ -109,26 +109,23 @@ function ProjectDoc() {
 
 function PriceCard() {
   const href = PRICING.live ? PRICING.checkoutUrl || "#" : "#waitlist";
-  const label = PRICING.live ? `${PRICING.buyCta} · ${PRICING.founding}` : PRICING.waitlistCta;
+  const label = PRICING.live ? PRICING.buyCta : PRICING.waitlistCta;
   return (
     <div className="card ticked" style={{ padding: 26, marginTop: 26 }}>
       <div className="rx-label">FOUNDING ACCESS</div>
-      <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginTop: 10, flexWrap: "wrap" }}>
+      <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginTop: 10 }}>
         <span className="serif" style={{ fontSize: 46, lineHeight: 1, color: "var(--paper)", letterSpacing: "-0.02em" }}>
           {PRICING.founding}
         </span>
-        <span className="mono" style={{ fontSize: 13, color: "var(--ink-faint)", textDecoration: "line-through" }}>
-          {PRICING.regular}
-        </span>
-        <span className="mono" style={{ fontSize: 12, color: "var(--ink-dim)" }}>{PRICING.currency}</span>
+        <span className="mono" style={{ fontSize: 14, color: "var(--ink-dim)" }}>{PRICING.currency}</span>
       </div>
-      <div style={{ marginTop: 8, fontSize: 13.5, color: "var(--ink-dim)" }}>{PRICING.note}</div>
+      <div style={{ marginTop: 10, fontSize: 13.5, color: "var(--ink-dim)" }}>
+        Regular price: {PRICING.regular} {PRICING.currency}
+      </div>
+      <div className="rx-label" style={{ marginTop: 4 }}>{PRICING.note}</div>
       <a href={href} className="btn btn-green" style={{ marginTop: 18, width: "100%", justifyContent: "center" }}>
         {label} <Icon name="arrow" size={12} color="var(--graphite-0)" />
       </a>
-      <div className="rx-label" style={{ marginTop: 12, textAlign: "center" }}>
-        {PRICING.live ? "INSTANT ACCESS · FOUNDING PRICE WHILE SEATS LAST" : "NOT SELLING YET · JOIN TO LOCK FOUNDING PRICE"}
-      </div>
     </div>
   );
 }
@@ -160,9 +157,9 @@ export default function ResearchStackStarter() {
               <em style={{ color: "var(--green)" }}>without the guesswork.</em>
             </h2>
             <p style={{ marginTop: 18, fontSize: 16, lineHeight: 1.6, color: "var(--ink-dim)", maxWidth: 480 }}>
-              Build the research side of your medical CV without wasting months guessing what to do. A complete
-              starter system — roadmap, templates, trackers and worksheets — that takes you from no projects to your
-              first publication.
+              A complete starter system with the roadmap, templates, trackers, and workflows to help you find
+              projects, contact supervisors, choose the right study type, and start building CV-worthy research
+              output.
             </p>
 
             <PriceCard />
