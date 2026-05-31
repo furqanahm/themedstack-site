@@ -29,16 +29,16 @@ export default function ProductDemo() {
             muted
             loop
             playsInline
-            aria-label="18 second MedStack OS product preview"
+            aria-label="29 second MedStack OS product preview"
           />
         </div>
 
         <div className="demo-controls">
-          <span className="demo-time">0:02</span>
+          <span className="demo-time">0:06</span>
           <div className="demo-scrub">
             <i />
           </div>
-          <span className="demo-time">0:20</span>
+          <span className="demo-time">0:35</span>
           <span className="rx-label" style={{ marginLeft: 4 }}>
             MEDSTACK OS - LIVE PREVIEW
           </span>
