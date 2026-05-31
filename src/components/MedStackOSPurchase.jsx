@@ -56,7 +56,7 @@ export default function MedStackOSPurchase() {
                   <small>one-time access</small>
                 </div>
               </div>
-              <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-green lemonsqueezy-button">
+              <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-green">
                 Get MedStack OS <Icon name="arrow" size={12} color="var(--graphite-0)" />
               </a>
             </div>

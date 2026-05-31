@@ -40,7 +40,7 @@ export default function Nav() {
             </a>
           ))}
           <span className="hr" style={{ width: 1, height: 20, background: "var(--hair-strong)" }} />
-          <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-ghost lemonsqueezy-button" style={{ padding: "9px 15px" }}>
+          <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-ghost" style={{ padding: "9px 15px" }}>
             Get MedStack OS <Icon name="arrow" size={12} />
           </a>
         </nav>

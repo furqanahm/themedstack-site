@@ -37,7 +37,7 @@ export default function Hero() {
           </p>
 
           <div style={{ display: "flex", gap: 12, marginTop: 30, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-primary lemonsqueezy-button">
+            <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-primary">
               Get MedStack OS <Icon name="arrow" size={12} color="var(--graphite-0)" />
             </a>
             <a href="#medstack-os" className="btn btn-ghost">
