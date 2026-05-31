@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import MedStackOSPurchase from "./components/MedStackOSPurchase";
@@ -9,6 +10,22 @@ import WaitlistCta from "./components/WaitlistCta";
 import Footer from "./components/Footer";
 
 export default function App() {
+  useEffect(() => {
+    let attempts = 0;
+    const timer = window.setInterval(() => {
+      attempts += 1;
+      if (window.createLemonSqueezy) {
+        window.createLemonSqueezy();
+        window.clearInterval(timer);
+      }
+      if (attempts >= 20) {
+        window.clearInterval(timer);
+      }
+    }, 250);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <div className="page">
       <Nav />
