@@ -474,6 +474,120 @@ input:focus, textarea:focus, select:focus {
    Child components reading --paper / --ink-dim / --hair adapt
    automatically, so headings, eyebrows and tags just work.
    ============================================================ */
+/* ============================================================
+   MEDSTACK OS PURCHASE SECTION
+   ============================================================ */
+.os-purchase {
+  padding-top: clamp(72px, 8vw, 120px);
+  padding-bottom: clamp(80px, 9vw, 136px);
+  background:
+    radial-gradient(860px 440px at 82% 8%, rgba(67, 198, 138, 0.13), transparent 62%),
+    radial-gradient(780px 420px at 12% 78%, rgba(110, 151, 242, 0.09), transparent 64%),
+    linear-gradient(180deg, var(--graphite-1), var(--graphite-0));
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+}
+.os-purchase-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(36px, 5vw, 72px);
+  align-items: center;
+}
+.os-purchase-title {
+  margin: 20px 0 0;
+  max-width: 560px;
+  font-size: clamp(38px, 5.4vw, 68px);
+  line-height: 1;
+  color: var(--paper);
+}
+.os-purchase-copy {
+  max-width: 540px;
+  margin: 20px 0 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+.os-price-card {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--r-3);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 44%),
+    var(--graphite-2);
+  box-shadow: var(--shadow-1);
+}
+.os-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 5px;
+}
+.os-price span {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  line-height: 1;
+  color: var(--paper);
+  letter-spacing: -0.02em;
+}
+.os-price small {
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.os-includes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+  margin-top: 22px;
+}
+.os-include {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--ink-dim);
+  font-size: 13.5px;
+}
+.os-preview-stack {
+  display: grid;
+  gap: 16px;
+}
+.os-preview-card {
+  overflow: hidden;
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--r-3);
+  background: var(--graphite-2);
+  box-shadow: var(--shadow-2);
+}
+.os-preview-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--graphite-1);
+}
+.os-preview-card > div {
+  padding: 16px 18px 18px;
+}
+.os-preview-card h3 {
+  margin: 0;
+  color: var(--paper);
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+.os-preview-card p {
+  margin: 6px 0 0;
+  color: var(--ink-dim);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .sec-light {
   --paper: #1b1e22;
   --paper-2: #2a2e34;
@@ -640,6 +754,12 @@ input:focus, textarea:focus, select:focus {
 
   .demo-note { display: none !important; }
   .demo-frame { padding: 8px; border-radius: 16px; }
+
+  .os-purchase-grid { grid-template-columns: 1fr !important; }
+  .os-price-card { align-items: stretch; flex-direction: column; }
+  .os-price-card .btn { width: 100%; justify-content: center; }
+  .os-includes { grid-template-columns: 1fr; }
+  .os-preview-stack { margin-top: 12px; }
 
   form > div[style*="display:flex"],
   form > div[style*="display: flex"] {

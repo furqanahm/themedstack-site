@@ -1,4 +1,5 @@
 import { Wordmark, Icon } from "./atoms";
+import { MEDSTACK_OS_CHECKOUT_URL } from "../config";
 
 const LINKS = [
   ["MedStack OS", "#medstack-os"],
@@ -39,8 +40,8 @@ export default function Nav() {
             </a>
           ))}
           <span className="hr" style={{ width: 1, height: 20, background: "var(--hair-strong)" }} />
-          <a href="#waitlist" className="btn btn-ghost" style={{ padding: "9px 15px" }}>
-            Join the waitlist <Icon name="arrow" size={12} />
+          <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-ghost lemonsqueezy-button" style={{ padding: "9px 15px" }}>
+            Get MedStack OS <Icon name="arrow" size={12} />
           </a>
         </nav>
       </div>

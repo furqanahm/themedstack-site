@@ -1,5 +1,6 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import MedStackOSPurchase from "./components/MedStackOSPurchase";
 import WhatIsMedStackOS from "./components/WhatIsMedStackOS";
 import ResearchStackStarter from "./components/ResearchStackStarter";
 import ResearchStackAcademy from "./components/ResearchStackAcademy";
@@ -12,6 +13,7 @@ export default function App() {
     <div className="page">
       <Nav />
       <Hero />
+      <MedStackOSPurchase />
       <WhatIsMedStackOS />
       <ResearchStackStarter />
       <ResearchStackAcademy />

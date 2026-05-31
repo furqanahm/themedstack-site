@@ -5,7 +5,7 @@ import { CONVERTKIT_ACTION } from "../config";
 const BENEFITS = [
   { t: "Early access to ResearchStack Academy", d: "Be first to know when the full research program opens." },
   { t: "Founding member pricing", d: "Lock in the earliest price before public launch." },
-  { t: "MedStack OS preview", d: "Get early previews of the workspace and research tracking system." },
+  { t: "ResearchStack build updates", d: "See the roadmap, templates and workflows as they are built." },
   { t: "Build log — no spam", d: "Behind-the-scenes updates as we build." },
 ];
 

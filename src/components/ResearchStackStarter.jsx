@@ -148,7 +148,7 @@ export default function ResearchStackStarter() {
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
               <span className="tag tag-amber">
                 <span className="dot" />
-                FIRST PAID SYSTEM
+                NEXT PRODUCT
               </span>
             </div>
 

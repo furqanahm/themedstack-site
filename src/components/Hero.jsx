@@ -1,5 +1,6 @@
 import { Icon } from "./atoms";
 import ProductDemo from "./ProductDemo";
+import { MEDSTACK_OS_CHECKOUT_URL } from "../config";
 
 export default function Hero() {
   return (
@@ -36,8 +37,8 @@ export default function Hero() {
           </p>
 
           <div style={{ display: "flex", gap: 12, marginTop: 30, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="#waitlist" className="btn btn-primary">
-              Join the founding waitlist <Icon name="arrow" size={12} color="var(--graphite-0)" />
+            <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-primary lemonsqueezy-button">
+              Get MedStack OS <Icon name="arrow" size={12} color="var(--graphite-0)" />
             </a>
             <a href="#medstack-os" className="btn btn-ghost">
               <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden style={{ marginRight: -1 }}>
@@ -52,7 +53,7 @@ export default function Hero() {
             <span style={{ opacity: 0.4 }}>·</span>
             <span>EDUCATION-FIRST</span>
             <span style={{ opacity: 0.4 }}>·</span>
-            <span>FOUNDING ACCESS SOON</span>
+            <span>FOUNDING ACCESS OPEN</span>
           </div>
         </div>
 

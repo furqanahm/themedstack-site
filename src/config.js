@@ -2,6 +2,9 @@
 export const CONVERTKIT_FORM_ID = "9373212";
 export const CONVERTKIT_ACTION = `https://app.kit.com/forms/${CONVERTKIT_FORM_ID}/subscriptions`;
 
+export const MEDSTACK_OS_CHECKOUT_URL =
+  "https://themedstack.lemonsqueezy.com/checkout/buy/f01b485a-19c8-4784-90c6-92ee1f8be525";
+
 /**
  * ResearchStack Starter System pricing.
  * Edit these values to change the offer everywhere it appears.
@@ -10,7 +13,7 @@ export const CONVERTKIT_ACTION = `https://app.kit.com/forms/${CONVERTKIT_FORM_ID
  * Paste your Stripe / Gumroad / payment link into `checkoutUrl`.
  */
 export const PRICING = {
-  live: true,
+  live: false,
   currency: "AUD",
   founding: "$497",
   regular: "$997",
