@@ -475,6 +475,81 @@ input:focus, textarea:focus, select:focus {
    automatically, so headings, eyebrows and tags just work.
    ============================================================ */
 /* ============================================================
+   MEDSTACK OS LITE LEAD MAGNET
+   ============================================================ */
+.lite-section {
+  padding-top: clamp(54px, 6vw, 90px);
+  padding-bottom: clamp(54px, 6vw, 96px);
+  background:
+    radial-gradient(760px 300px at 16% 22%, rgba(67, 198, 138, 0.12), transparent 62%),
+    var(--graphite-1);
+  border-top: 1px solid var(--hair);
+}
+.lite-card {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(28px, 4vw, 54px);
+  align-items: center;
+  padding: clamp(26px, 4vw, 44px);
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--r-4);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 48%),
+    linear-gradient(180deg, rgba(67, 198, 138, 0.045), transparent 62%),
+    var(--graphite-2);
+  box-shadow: var(--shadow-2);
+}
+.lite-title {
+  margin: 18px 0 0;
+  max-width: 620px;
+  font-size: clamp(34px, 4.6vw, 58px);
+  line-height: 1.02;
+  color: var(--paper);
+}
+.lite-copy {
+  max-width: 620px;
+  margin: 16px 0 0;
+  color: var(--ink-dim);
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+.lite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.lite-feature-grid {
+  display: grid;
+  gap: 10px;
+}
+.lite-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 13px;
+  border: 1px solid var(--hair);
+  border-radius: 10px;
+  background: rgba(243, 241, 233, 0.025);
+  color: var(--ink-dim);
+  font-size: 13.5px;
+}
+.lite-upgrade-note {
+  margin-top: 4px;
+  padding: 16px;
+  border: 1px solid rgba(67, 198, 138, 0.3);
+  border-radius: 12px;
+  background: rgba(67, 198, 138, 0.08);
+}
+.lite-upgrade-note strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--paper);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+/* ============================================================
    MEDSTACK OS PURCHASE SECTION
    ============================================================ */
 .os-purchase {
@@ -754,6 +829,9 @@ input:focus, textarea:focus, select:focus {
 
   .demo-note { display: none !important; }
   .demo-frame { padding: 8px; border-radius: 16px; }
+
+  .lite-card { grid-template-columns: 1fr !important; }
+  .lite-actions .btn { width: 100%; justify-content: center; }
 
   .os-purchase-grid { grid-template-columns: 1fr !important; }
   .os-price-card { align-items: stretch; flex-direction: column; }

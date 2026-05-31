@@ -42,7 +42,9 @@ export default function Footer() {
             {
               h: "PRODUCT",
               l: [
-                ["MedStack OS", "#medstack-os"],
+                ["OS Lite free", "#medstack-lite"],
+                ["Full MedStack OS", "#get-medstack-os"],
+                ["What is MedStack OS", "#medstack-os"],
                 ["ResearchStack Starter", "#researchstack"],
                 ["ResearchStack Academy", "#academy"],
               ],

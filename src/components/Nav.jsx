@@ -2,7 +2,8 @@ import { Wordmark, Icon } from "./atoms";
 import { MEDSTACK_OS_CHECKOUT_URL } from "../config";
 
 const LINKS = [
-  ["MedStack OS", "#medstack-os"],
+  ["OS Lite", "#medstack-lite"],
+  ["Full OS", "#get-medstack-os"],
   ["ResearchStack", "#researchstack"],
   ["Why", "#why"],
 ];
