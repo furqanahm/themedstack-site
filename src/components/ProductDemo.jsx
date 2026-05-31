@@ -1,8 +1,4 @@
-import WorkspaceMock from "./WorkspaceMock";
-
-/* Video-style product tour frame. The live workspace mock sits behind a
-   play overlay + scrubber so it reads as a real demo video. When a real
-   recording exists, drop a <video> into .demo-screen in place of WorkspaceMock. */
+/* Video-style product tour frame. */
 
 const NOTES = [
   { label: "Track research", style: { top: 24, left: 0 } },
@@ -25,25 +21,26 @@ export default function ProductDemo() {
 
       <div className="demo-frame">
         <div className="demo-screen">
-          <WorkspaceMock />
-          <div className="demo-play" aria-hidden>
-            <span className="ring" />
-            <button className="pbtn" type="button" aria-label="Preview MedStack OS" title="Product tour — coming soon">
-              <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden>
-                <path d="M8 6l8 5-8 5z" fill="#15181d" />
-              </svg>
-            </button>
-          </div>
+          <video
+            className="demo-video"
+            src="/videos/medstack-os-demo-18s.mp4"
+            poster="/images/medstack-dashboard-preview.png"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-label="18 second MedStack OS product preview"
+          />
         </div>
 
         <div className="demo-controls">
-          <span className="demo-time">0:18</span>
+          <span className="demo-time">0:02</span>
           <div className="demo-scrub">
             <i />
           </div>
-          <span className="demo-time">2:30</span>
+          <span className="demo-time">0:20</span>
           <span className="rx-label" style={{ marginLeft: 4 }}>
-            MEDSTACK OS · PRODUCT TOUR
+            MEDSTACK OS - LIVE PREVIEW
           </span>
         </div>
       </div>
