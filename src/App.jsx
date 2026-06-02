@@ -8,8 +8,13 @@ import ResearchStackAcademy from "./components/ResearchStackAcademy";
 import WhyThisExists from "./components/WhyThisExists";
 import WaitlistCta from "./components/WaitlistCta";
 import Footer from "./components/Footer";
+import MedStackOSAccess from "./components/MedStackOSAccess";
 
 export default function App() {
+  if (window.location.pathname === "/medstack-os-access") {
+    return <MedStackOSAccess />;
+  }
+
   return (
     <div className="page">
       <Nav />

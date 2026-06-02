@@ -1,0 +1,2 @@
+Study_ID,Patient_or_Record_ID_Deidentified,Inclusion_Check,Exclusion_Check,Age_Group,Sex,Date_Range,Variable_1,Variable_2,Variable_3,Outcome_1,Outcome_2,Missing_Data_Notes,Reviewer,Date_Extracted,Query_Flag
+1,"ID001","Yes","No","","","","","","","","","","","",false

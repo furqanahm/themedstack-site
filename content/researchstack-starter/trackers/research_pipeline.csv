@@ -1,0 +1,4 @@
+Project,Type,Specialty,Supervisor,Institution,Status,Current Blocker,Next Action,Next Action Date,Target Output,Target Date,Approval Status,Your Role,Priority,Notes
+"Example antibiotic timing audit","Audit/QI","Surgery","Dr Example","Example Hospital","Idea","Need supervisor confirmation","Email consultant",2026-06-10,"Department presentation",2026-08-01,"Not started","Student contributor","High","Replace with your own project"
+"Example unusual imaging case","Case report","Radiology","Dr Example","Example Hospital","Contacted","Awaiting reply","Follow up",2026-06-14,"Case report abstract",2026-09-01,"Consent/check local process","Literature search and draft","Medium","Replace with your own project"
+"Example AI triage review","Literature review","Emergency","Dr Example","University","Scoping","Question too broad","Narrow PICO",2026-06-12,"Conference poster",2026-10-01,"N/A until design confirmed","Search and matrix","Medium","Replace with your own project"

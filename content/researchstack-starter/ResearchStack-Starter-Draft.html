@@ -1,0 +1,1167 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ResearchStack Starter Draft</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm;
+    }
+
+    :root {
+      color: #152018;
+      background: #fbfaf5;
+      font-family: Inter, Arial, sans-serif;
+      line-height: 1.48;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #fbfaf5;
+      color: #152018;
+      font-size: 10.5pt;
+    }
+
+    .cover {
+      min-height: 250mm;
+      padding: 18mm 0 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #19b878;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 9pt;
+    }
+
+    .mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: #0f1519;
+      border: 1px solid #254c3d;
+      display: inline-block;
+      position: relative;
+    }
+
+    .mark::before,
+    .mark::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      right: 7px;
+      height: 3px;
+      background: #5ee4a2;
+      border-radius: 99px;
+    }
+
+    .mark::before { top: 9px; }
+    .mark::after { top: 16px; }
+
+    .cover h1 {
+      margin: 34mm 0 0;
+      max-width: 165mm;
+      font-size: 42pt;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: #0f1519;
+    }
+
+    .cover .subtitle {
+      margin-top: 10mm;
+      max-width: 145mm;
+      font-size: 15pt;
+      line-height: 1.45;
+      color: #38453e;
+    }
+
+    .cover-card {
+      margin-top: 20mm;
+      border: 1px solid #cbe6d8;
+      border-radius: 16px;
+      padding: 10mm;
+      background: linear-gradient(135deg, #e9f8ef, #ffffff);
+    }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5mm;
+      margin-top: 7mm;
+    }
+
+    .pill {
+      border: 1px solid #c7ded1;
+      border-radius: 999px;
+      padding: 3mm 4mm;
+      color: #176b48;
+      font-size: 9pt;
+      font-weight: 700;
+      background: #f8fff9;
+    }
+
+    .footer-note {
+      border-top: 1px solid #dce8df;
+      padding-top: 6mm;
+      color: #607068;
+      font-size: 9pt;
+    }
+
+    .toc {
+      page-break-after: always;
+    }
+
+    .toc h2 {
+      font-size: 25pt;
+      margin: 0 0 9mm;
+    }
+
+    .toc ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      columns: 2;
+      column-gap: 12mm;
+    }
+
+    .toc li {
+      break-inside: avoid;
+      padding: 2.2mm 0;
+      border-bottom: 1px solid #e4ebe6;
+      color: #223129;
+    }
+
+    .toc span {
+      color: #19a96f;
+      font-weight: 800;
+      margin-right: 4mm;
+      font-family: Consolas, monospace;
+    }
+
+    section {
+      page-break-before: always;
+    }
+
+    section:first-of-type {
+      page-break-before: auto;
+    }
+
+    .file-label {
+      color: #19a96f;
+      font-family: Consolas, monospace;
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 5mm;
+    }
+
+    h1 {
+      color: #0f1519;
+      font-size: 24pt;
+      line-height: 1.05;
+      margin: 0 0 8mm;
+      letter-spacing: -0.01em;
+    }
+
+    h2 {
+      color: #176b48;
+      font-size: 17pt;
+      margin: 10mm 0 3.5mm;
+      page-break-after: avoid;
+    }
+
+    h3 {
+      color: #152018;
+      font-size: 12.5pt;
+      margin: 7mm 0 2.5mm;
+      page-break-after: avoid;
+    }
+
+    h4 {
+      color: #435148;
+      font-size: 10.5pt;
+      margin: 5mm 0 2mm;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      page-break-after: avoid;
+    }
+
+    p {
+      margin: 0 0 3.5mm;
+    }
+
+    ul, ol {
+      margin: 0 0 4mm 6mm;
+      padding-left: 5mm;
+    }
+
+    li {
+      margin: 1.4mm 0;
+    }
+
+    a {
+      color: #0f8f61;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      background: #eef5ef;
+      border: 1px solid #d8e8dc;
+      border-radius: 4px;
+      padding: 0 3px;
+      font-size: 9pt;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      background: #10161a;
+      color: #d9fff0;
+      border-radius: 10px;
+      padding: 5mm;
+      font-size: 8.7pt;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 4mm 0 6mm;
+      font-size: 8.5pt;
+      page-break-inside: auto;
+    }
+
+    tr {
+      page-break-inside: avoid;
+    }
+
+    th {
+      background: #123326;
+      color: #ffffff;
+      text-align: left;
+      font-weight: 800;
+      padding: 2.2mm;
+      border: 1px solid #264b3c;
+    }
+
+    td {
+      vertical-align: top;
+      padding: 2.1mm;
+      border: 1px solid #d8e4dc;
+      background: #ffffff;
+    }
+
+    .table-scroll {
+      overflow: visible;
+    }
+
+    .note {
+      border-left: 4px solid #22c982;
+      background: #ecfaf1;
+      padding: 4mm 5mm;
+      border-radius: 10px;
+      margin: 6mm 0;
+    }
+
+    .section-shell {
+      border-top: 3px solid #19b878;
+      padding-top: 6mm;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="cover">
+      <div>
+        <div class="brand"><span class="mark"></span>The MedStack</div>
+        <h1>ResearchStack Starter</h1>
+        <p class="subtitle">A practical research launch system for Australian medical students who want to find projects, contact supervisors, and build CV-ready research outputs without guessing.</p>
+        <div class="cover-card">
+          <strong>Founder draft</strong>
+          <p>This compiled PDF includes the full working product source: guides, scripts, templates, tracker previews, sales notes, and content seeds.</p>
+          <div class="cover-grid">
+            <span class="pill">Supervisor outreach</span>
+            <span class="pill">Audit / QI starter</span>
+            <span class="pill">Literature search</span>
+            <span class="pill">CV evidence</span>
+            <span class="pill">Publication roadmap</span>
+            <span class="pill">AI prompt vault</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-note">Education and organisation support only. Students must check local university, hospital, supervisor, governance, and HREC requirements.</div>
+    </div>
+
+    <div class="toc">
+      <h2>Contents</h2>
+      <ol><li><span>01</span>README</li><li><span>02</span>product positioning</li><li><span>03</span>30 day research sprint</li><li><span>04</span>project type playbook</li><li><span>05</span>australian ethics qi audit guide</li><li><span>06</span>literature search starter</li><li><span>07</span>output and publication roadmap</li><li><span>08</span>ai prompt vault</li><li><span>09</span>scripts/research outreach email scripts</li><li><span>10</span>scripts/supervisor meeting scripts</li><li><span>11</span>scripts/follow up and rescue scripts</li><li><span>12</span>templates/case report template</li><li><span>13</span>templates/audit qi project template</li><li><span>14</span>templates/abstract template</li><li><span>15</span>templates/manuscript section template</li><li><span>16</span>trackers/research pipeline</li><li><span>17</span>trackers/supervisor crm</li><li><span>18</span>trackers/literature matrix</li><li><span>19</span>trackers/conference journal tracker</li><li><span>20</span>trackers/authorship contribution tracker</li><li><span>21</span>trackers/data extraction template</li><li><span>22</span>market research and offer notes</li><li><span>23</span>sales page draft</li><li><span>24</span>content seeds</li></ol>
+    </div>
+
+    
+          <section>
+            <div class="section-shell">
+              <div class="file-label">README.md</div>
+              <h1 id="readme-md-researchstack-starter">ResearchStack Starter</h1>
+<p>ResearchStack Starter is a self-serve research launch system for Australian medical students who want to move from &quot;I should do research&quot; to a clear project pipeline, supervisor outreach plan, and first publishable output pathway.</p>
+<p>This folder is the source pack. It can later be converted into PDFs, Notion pages, Google Sheets, Lemon Squeezy files, and website copy.</p>
+<h2 id="readme-md-product-promise">Product Promise</h2>
+<p>In 30 days, the student should know:</p>
+<ul><li>what type of research project suits their current stage</li><li>how to find and contact potential supervisors</li><li>how to track opportunities without losing follow-ups</li><li>how to run a literature search without pretending they are already an academic</li><li>how to turn a project into CV-ready evidence</li><li>what to ask before joining a project</li><li>what &quot;audit/QI vs research&quot; usually means in an Australian hospital context</li><li>what their next concrete research action is this week</li></ul>
+<h2 id="readme-md-included-files">Included Files</h2>
+<p>Start here:</p>
+<ul><li><code>01-product-positioning.md</code></li><li><code>02-30-day-research-sprint.md</code></li><li><code>03-project-type-playbook.md</code></li><li><code>04-australian-ethics-qi-audit-guide.md</code></li><li><code>05-literature-search-starter.md</code></li><li><code>06-output-and-publication-roadmap.md</code></li><li><code>07-ai-prompt-vault.md</code></li></ul>
+<p>Scripts:</p>
+<ul><li><code>scripts/research-outreach-email-scripts.md</code></li><li><code>scripts/supervisor-meeting-scripts.md</code></li><li><code>scripts/follow-up-and-rescue-scripts.md</code></li></ul>
+<p>Templates:</p>
+<ul><li><code>templates/case-report-template.md</code></li><li><code>templates/audit-qi-project-template.md</code></li><li><code>templates/abstract-template.md</code></li><li><code>templates/manuscript-section-template.md</code></li></ul>
+<p>Trackers:</p>
+<ul><li><code>trackers/research_pipeline.csv</code></li><li><code>trackers/supervisor_crm.csv</code></li><li><code>trackers/literature_matrix.csv</code></li><li><code>trackers/conference_journal_tracker.csv</code></li><li><code>trackers/authorship_contribution_tracker.csv</code></li><li><code>trackers/data_extraction_template.csv</code></li></ul>
+<h2 id="readme-md-important-note">Important Note</h2>
+<p>This product is education and organisation support only. It is not legal, ethics, university, hospital, or medical advice. Students should check their local university, hospital research office, supervisor, and HREC requirements before collecting data, contacting patients, submitting abstracts, or publishing.</p>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">01-product-positioning.md</div>
+              <h1 id="01-product-positioning-md-researchstack-starter-product-positioning">ResearchStack Starter: Product Positioning</h1>
+<h2 id="01-product-positioning-md-one-line-offer">One-Line Offer</h2>
+<p>The beginner research system for Australian medical students who want to find projects, contact supervisors, track progress, and turn research into CV-ready outputs without guessing.</p>
+<h2 id="01-product-positioning-md-who-it-is-for">Who It Is For</h2>
+<ul><li>Australian medical students in pre-clinical or clinical years</li><li>Students who know research matters but do not know where to start</li><li>Students aiming for competitive pathways where research, audits, presentations, publications, and leadership matter</li><li>Students who have emailed one or two doctors before and heard nothing back</li><li>Students who have joined a project but feel unclear about the next action</li></ul>
+<h2 id="01-product-positioning-md-who-it-is-not-for">Who It Is Not For</h2>
+<ul><li>PhD-level researchers</li><li>Students who already have multiple first-author papers and a strong supervisor network</li><li>Anyone looking for guaranteed publication</li><li>Anyone wanting shortcuts around ethics, authorship, or academic integrity</li></ul>
+<h2 id="01-product-positioning-md-core-outcome">Core Outcome</h2>
+<p>By the end of the starter system, the student should have:</p>
+<ul><li>a shortlist of realistic project types</li><li>a list of 10-20 possible supervisors, teams, or project sources</li><li>3-5 tailored outreach emails ready to send</li><li>a research pipeline tracker</li><li>one project brief drafted</li><li>one follow-up rhythm</li><li>a CV evidence log for research outputs</li><li>a clear understanding of what to ask before committing</li></ul>
+<h2 id="01-product-positioning-md-product-levels">Product Levels</h2>
+<h3 id="01-product-positioning-md-researchstack-starter">ResearchStack Starter</h3>
+<p>Self-serve system. No video required at launch.</p>
+<p>Includes:</p>
+<ul><li>starter guide</li><li>project type playbook</li><li>outreach scripts</li><li>literature search worksheet</li><li>audit/QI guide</li><li>case report and abstract templates</li><li>trackers</li><li>AI prompt vault</li></ul>
+<p>Target price:</p>
+<ul><li>Launch: AUD 197-299</li><li>Bundle with MedStack OS: AUD 199-249 for founding access</li><li>Future with feedback/cohort: AUD 499-999</li></ul>
+<h3 id="01-product-positioning-md-researchstack-pro">ResearchStack Pro</h3>
+<p>Future higher-ticket offer.</p>
+<p>Could include:</p>
+<ul><li>recorded walkthroughs</li><li>live office hours</li><li>project idea review</li><li>CV/research profile review</li><li>supervisor email feedback</li><li>abstract/manuscript feedback</li><li>templates for specific specialties</li></ul>
+<h2 id="01-product-positioning-md-why-this-can-sell">Why This Can Sell</h2>
+<p>The pain is specific:</p>
+<ul><li>&quot;I need research for my CV but do not know how to start.&quot;</li><li>&quot;I do not know who to email.&quot;</li><li>&quot;I do not know what counts as a good project.&quot;</li><li>&quot;I do not know how to follow up without annoying people.&quot;</li><li>&quot;I joined a project and now nothing is happening.&quot;</li><li>&quot;I have done work but do not know how to turn it into an abstract, poster, or CV point.&quot;</li></ul>
+<p>The product should not promise publication. It should promise structure, momentum, and fewer beginner mistakes.</p>
+<h2 id="01-product-positioning-md-main-sales-angles">Main Sales Angles</h2>
+<h3 id="01-product-positioning-md-angle-1-the-research-starting-problem">Angle 1: The Research Starting Problem</h3>
+<p>Most students are told research matters, but nobody gives them the operating system for finding, starting, and finishing projects.</p>
+<h3 id="01-product-positioning-md-angle-2-supervisor-outreach">Angle 2: Supervisor Outreach</h3>
+<p>Students lose months because they send vague emails or wait for opportunities instead of building a pipeline.</p>
+<h3 id="01-product-positioning-md-angle-3-cv-evidence">Angle 3: CV Evidence</h3>
+<p>Research only helps if it becomes traceable evidence: role, contribution, abstract, poster, presentation, manuscript, publication, referee, or lesson.</p>
+<h3 id="01-product-positioning-md-angle-4-australia-specific-context">Angle 4: Australia-Specific Context</h3>
+<p>Australian students need to understand audits, quality improvement, HREC, hospital governance, specialty CV expectations, and local conference opportunities.</p>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">02-30-day-research-sprint.md</div>
+              <h1 id="02-30-day-research-sprint-md-30-day-research-sprint">30-Day Research Sprint</h1>
+<p>This sprint is designed for a medical student starting from zero or near-zero research momentum.</p>
+<p>The goal is not to publish in 30 days. The goal is to build a real research pipeline, contact the right people, and begin one realistic project.</p>
+<h2 id="02-30-day-research-sprint-md-week-1-choose-your-lane">Week 1: Choose Your Lane</h2>
+<h3 id="02-30-day-research-sprint-md-day-1-define-your-research-direction">Day 1: Define Your Research Direction</h3>
+<p>Pick 1-2 broad areas:</p>
+<ul><li>surgery</li><li>medicine</li><li>emergency</li><li>paediatrics</li><li>psychiatry</li><li>public health</li><li>medical education</li><li>rural health</li><li>digital health / AI</li><li>women's health</li><li>oncology</li><li>critical care</li></ul>
+<p>Write:</p>
+<ul><li>I am interested in:</li><li>I would be happy to work on:</li><li>I do not want to work on:</li><li>My current experience level:</li><li>My realistic weekly time:</li></ul>
+<h3 id="02-30-day-research-sprint-md-day-2-choose-project-types">Day 2: Choose Project Types</h3>
+<p>Rank these by realism:</p>
+<ul><li>case report</li><li>audit or quality improvement project</li><li>retrospective chart review</li><li>literature review</li><li>systematic review</li><li>survey study</li><li>medical education project</li><li>database project</li><li>conference abstract</li><li>poster presentation</li></ul>
+<p>Beginner recommendation:</p>
+<ul><li>case report if you have a good clinical case and a supportive doctor</li><li>audit/QI if your hospital team has a clear clinical process gap</li><li>literature review if you can access a supervisor and narrow question</li><li>retrospective project only if data access and approvals are realistic</li></ul>
+<h3 id="02-30-day-research-sprint-md-day-3-build-your-supervisor-list">Day 3: Build Your Supervisor List</h3>
+<p>Find 10-20 people across:</p>
+<ul><li>university academics</li><li>hospital consultants</li><li>registrars involved in research</li><li>specialty society contacts</li><li>student research societies</li><li>supervisors from previous placements</li><li>authors of local papers in your interest area</li></ul>
+<p>Log them in <code>trackers/supervisor_crm.csv</code>.</p>
+<h3 id="02-30-day-research-sprint-md-day-4-read-before-you-email">Day 4: Read Before You Email</h3>
+<p>For each top contact, find:</p>
+<ul><li>their specialty</li><li>1-2 recent papers or projects</li><li>hospital/university affiliation</li><li>why their work is relevant to you</li><li>one specific sentence you can mention in the email</li></ul>
+<h3 id="02-30-day-research-sprint-md-day-5-write-your-first-5-emails">Day 5: Write Your First 5 Emails</h3>
+<p>Use <code>scripts/research-outreach-email-scripts.md</code>.</p>
+<p>Do not send the same generic email to everyone. Tailor the first 2-3 lines.</p>
+<h3 id="02-30-day-research-sprint-md-day-6-send-and-track">Day 6: Send and Track</h3>
+<p>Send 5 emails.</p>
+<p>Track:</p>
+<ul><li>date sent</li><li>contact</li><li>topic</li><li>response</li><li>follow-up date</li><li>next action</li></ul>
+<h3 id="02-30-day-research-sprint-md-day-7-review">Day 7: Review</h3>
+<p>Ask:</p>
+<ul><li>Did I send enough?</li><li>Were they specific?</li><li>Did I offer realistic help?</li><li>Did I make it easy for the doctor to reply?</li></ul>
+<h2 id="02-30-day-research-sprint-md-week-2-create-project-options">Week 2: Create Project Options</h2>
+<h3 id="02-30-day-research-sprint-md-day-8-10-find-3-project-ideas">Day 8-10: Find 3 Project Ideas</h3>
+<p>Use:</p>
+<ul><li>recent journal articles</li><li>local hospital quality gaps</li><li>guideline updates</li><li>common clinical problems</li><li>unanswered questions from placement</li><li>conference abstract books</li><li>supervisor publications</li></ul>
+<p>For each idea:</p>
+<ul><li>question</li><li>project type</li><li>possible data source</li><li>possible output</li><li>likely approval needed</li><li>who could supervise it</li></ul>
+<h3 id="02-30-day-research-sprint-md-day-11-12-prepare-a-meeting-brief">Day 11-12: Prepare a Meeting Brief</h3>
+<p>For each meeting, create:</p>
+<ul><li>3-sentence intro</li><li>why you are interested</li><li>your weekly availability</li><li>project types you can help with</li><li>one example task you could do</li><li>questions for the supervisor</li></ul>
+<p>Use <code>scripts/supervisor-meeting-scripts.md</code>.</p>
+<h3 id="02-30-day-research-sprint-md-day-13-14-follow-up">Day 13-14: Follow Up</h3>
+<p>Follow up with anyone who has not replied after 7-10 days.</p>
+<p>Use <code>scripts/follow-up-and-rescue-scripts.md</code>.</p>
+<h2 id="02-30-day-research-sprint-md-week-3-commit-to-one-real-project">Week 3: Commit to One Real Project</h2>
+<h3 id="02-30-day-research-sprint-md-day-15-17-score-opportunities">Day 15-17: Score Opportunities</h3>
+<p>Score each possible project:</p>
+<ul><li>clear supervisor</li><li>clear question</li><li>clear next action</li><li>realistic timeline</li><li>realistic approvals</li><li>student role is meaningful</li><li>output pathway exists</li></ul>
+<p>Avoid projects where:</p>
+<ul><li>nobody knows the question</li><li>there is no data access</li><li>you are promised authorship vaguely</li><li>the timeline is indefinite</li><li>you cannot identify your role</li></ul>
+<h3 id="02-30-day-research-sprint-md-day-18-21-set-up-the-project">Day 18-21: Set Up the Project</h3>
+<p>Create:</p>
+<ul><li>project brief</li><li>timeline</li><li>authorship/contribution tracker</li><li>literature matrix</li><li>next 3 actions</li><li>meeting rhythm</li></ul>
+<p>Use:</p>
+<ul><li><code>trackers/research_pipeline.csv</code></li><li><code>trackers/authorship_contribution_tracker.csv</code></li><li><code>trackers/literature_matrix.csv</code></li></ul>
+<h2 id="02-30-day-research-sprint-md-week-4-produce-evidence">Week 4: Produce Evidence</h2>
+<h3 id="02-30-day-research-sprint-md-day-22-24-start-the-literature-search">Day 22-24: Start the Literature Search</h3>
+<p>Define:</p>
+<ul><li>population</li><li>problem</li><li>intervention/exposure</li><li>comparator if relevant</li><li>outcome</li><li>study type</li></ul>
+<p>Build 2-3 search strings.</p>
+<h3 id="02-30-day-research-sprint-md-day-25-27-create-first-output">Day 25-27: Create First Output</h3>
+<p>Pick one:</p>
+<ul><li>one-page project brief</li><li>literature summary table</li><li>case report draft</li><li>audit criteria table</li><li>abstract skeleton</li><li>data extraction sheet</li></ul>
+<h3 id="02-30-day-research-sprint-md-day-28-30-lock-your-research-system">Day 28-30: Lock Your Research System</h3>
+<p>Update:</p>
+<ul><li>project tracker</li><li>supervisor CRM</li><li>next action</li><li>CV evidence log</li><li>follow-up dates</li></ul>
+<p>End with:</p>
+<ul><li>one active project or one strong lead</li><li>one next meeting or follow-up</li><li>one draft output</li><li>one CV evidence entry</li></ul>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">03-project-type-playbook.md</div>
+              <h1 id="03-project-type-playbook-md-project-type-playbook">Project Type Playbook</h1>
+<p>Not every research project is equal for a medical student. The best project is the one that has a clear question, realistic approvals, available supervision, and an output pathway.</p>
+<h2 id="03-project-type-playbook-md-fast-comparison">Fast Comparison</h2>
+<table><tr><th>Project type</th><th>Beginner fit</th><th>Typical output</th><th>Main risk</th></tr><tr><td>Case report</td><td>High</td><td>Abstract, poster, short paper</td><td>Needs a genuinely reportable case and consent/local process</td></tr><tr><td>Audit/QI</td><td>High</td><td>Poster, presentation, local change, paper sometimes</td><td>Needs governance and clear standards</td></tr><tr><td>Literature review</td><td>Medium</td><td>Review, presentation, background section</td><td>Can become too broad</td></tr><tr><td>Systematic review</td><td>Medium</td><td>Abstract, manuscript</td><td>Time-consuming, methods-heavy</td></tr><tr><td>Retrospective chart review</td><td>Medium</td><td>Abstract, poster, paper</td><td>Data access, ethics/governance</td></tr><tr><td>Survey study</td><td>Medium</td><td>Abstract, paper</td><td>Poor response rate, survey design</td></tr><tr><td>Prospective clinical study</td><td>Low</td><td>Paper</td><td>Often too slow for beginners</td></tr><tr><td>Lab/basic science</td><td>Variable</td><td>Paper, poster</td><td>Training and time required</td></tr><tr><td>Medical education project</td><td>High</td><td>Abstract, presentation, paper</td><td>Needs clear intervention/evaluation</td></tr></table>
+<h2 id="03-project-type-playbook-md-case-report">Case Report</h2>
+<p>Best when:</p>
+<ul><li>there is an unusual presentation, complication, diagnostic lesson, treatment issue, or systems lesson</li><li>a clinician involved in the case is willing to supervise</li><li>consent and local publication requirements can be handled properly</li></ul>
+<p>Student tasks:</p>
+<ul><li>draft timeline</li><li>collect de-identified clinical details under supervision</li><li>literature search</li><li>draft background/discussion</li><li>prepare figures/table</li><li>format to journal guidelines</li></ul>
+<p>Before starting, ask:</p>
+<ul><li>Has consent been obtained or what is the local process?</li><li>Who will be corresponding author?</li><li>What journal or conference are we aiming for?</li><li>What is my expected contribution?</li></ul>
+<h2 id="03-project-type-playbook-md-audit-quality-improvement">Audit / Quality Improvement</h2>
+<p>Best when:</p>
+<ul><li>there is a guideline, standard, or policy to compare practice against</li><li>the data source is realistic</li><li>the project can lead to local improvement</li></ul>
+<p>Student tasks:</p>
+<ul><li>define criteria</li><li>build data collection tool</li><li>extract data if approved</li><li>summarise baseline performance</li><li>help design intervention</li><li>prepare poster/presentation</li></ul>
+<p>Before starting, ask:</p>
+<ul><li>Is this audit/QI or research in this hospital's process?</li><li>Does it need HREC review, governance registration, or quality approval?</li><li>Who owns the data?</li><li>What is the output plan?</li></ul>
+<h2 id="03-project-type-playbook-md-literature-review">Literature Review</h2>
+<p>Best when:</p>
+<ul><li>the question is narrow</li><li>the supervisor knows the field</li><li>there is a clear output plan</li></ul>
+<p>Student tasks:</p>
+<ul><li>search strategy</li><li>screening articles</li><li>summary table</li><li>background writing</li><li>reference management</li></ul>
+<p>Common mistake:</p>
+<ul><li>picking a topic like &quot;AI in surgery&quot; instead of a focused question.</li></ul>
+<p>Better:</p>
+<ul><li>&quot;Use of AI-assisted triage tools for emergency department waiting time prediction: a scoping review.&quot;</li></ul>
+<h2 id="03-project-type-playbook-md-systematic-review">Systematic Review</h2>
+<p>Best when:</p>
+<ul><li>the question is answerable</li><li>the team has methods support</li><li>the student has time</li></ul>
+<p>Before starting, ask:</p>
+<ul><li>Has this review already been done?</li><li>Is there a protocol?</li><li>What database access do we have?</li><li>How many reviewers are involved?</li><li>Will we use Covidence, Rayyan, Excel, or another tool?</li><li>What reporting guideline applies?</li></ul>
+<h2 id="03-project-type-playbook-md-retrospective-chart-review">Retrospective Chart Review</h2>
+<p>Best when:</p>
+<ul><li>the clinical team already knows the data exists</li><li>the dataset is accessible</li><li>approvals are realistic</li><li>the question is clear</li></ul>
+<p>Student tasks:</p>
+<ul><li>data dictionary</li><li>data extraction sheet</li><li>literature background</li><li>cleaning data under supervision</li><li>abstract/manuscript drafting</li></ul>
+<p>Main risk:</p>
+<ul><li>getting stuck waiting for approvals or data access.</li></ul>
+<h2 id="03-project-type-playbook-md-medical-education-project">Medical Education Project</h2>
+<p>Best when:</p>
+<ul><li>you can evaluate teaching, simulation, curriculum, feedback, or student experience</li><li>the intervention is realistic</li><li>ethics/governance is considered early</li></ul>
+<p>Possible outputs:</p>
+<ul><li>conference abstract</li><li>poster</li><li>education journal paper</li><li>student society presentation</li></ul>
+<h2 id="03-project-type-playbook-md-how-to-pick-your-first-project">How To Pick Your First Project</h2>
+<p>Choose the project with the best combination of:</p>
+<ul><li>clear supervisor</li><li>clear next action</li><li>short feedback loop</li><li>defined output</li><li>realistic approvals</li><li>useful CV evidence</li></ul>
+<p>For most students, the best first project is usually:</p>
+<ol><li>case report</li><li>audit/QI</li><li>focused literature review</li><li>medical education project</li></ol>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">04-australian-ethics-qi-audit-guide.md</div>
+              <h1 id="04-australian-ethics-qi-audit-guide-md-australian-ethics-qi-audit-and-governance-guide">Australian Ethics, QI, Audit, and Governance Guide</h1>
+<p>This is a beginner-friendly orientation only. It is not ethics, legal, hospital, or university advice.</p>
+<p>Australian medical students should always check the relevant hospital research office, university, HREC, supervisor, and local policies before collecting data, accessing patient records, contacting patients, or submitting work publicly.</p>
+<h2 id="04-australian-ethics-qi-audit-guide-md-the-core-distinction">The Core Distinction</h2>
+<p>Many student projects sit somewhere between:</p>
+<ul><li>research</li><li>quality assurance</li><li>quality improvement</li><li>clinical audit</li><li>evaluation</li><li>case report</li></ul>
+<p>The label matters because it can change:</p>
+<ul><li>what approvals are needed</li><li>who can access data</li><li>whether patients need consent</li><li>whether the project can be published</li><li>which governance office needs to review it</li></ul>
+<h2 id="04-australian-ethics-qi-audit-guide-md-research">Research</h2>
+<p>Usually aims to generate new knowledge that can apply beyond the local setting.</p>
+<p>Examples:</p>
+<ul><li>retrospective study comparing outcomes</li><li>survey study designed for publication</li><li>systematic review</li><li>prospective study</li><li>intervention study</li></ul>
+<p>Possible requirements:</p>
+<ul><li>HREC review or exemption pathway</li><li>site governance</li><li>data access approval</li><li>supervisor oversight</li><li>consent or waiver depending on design</li></ul>
+<h2 id="04-australian-ethics-qi-audit-guide-md-audit">Audit</h2>
+<p>Usually compares current practice against an existing standard, guideline, or benchmark.</p>
+<p>Examples:</p>
+<ul><li>Are VTE risk assessments completed according to hospital policy?</li><li>Are antibiotics given within the recommended time window?</li><li>Are discharge summaries completed within local target time?</li></ul>
+<p>Possible requirements:</p>
+<ul><li>audit registration</li><li>quality assurance approval</li><li>governance review</li><li>permission to access records</li><li>supervisor responsibility</li></ul>
+<h2 id="04-australian-ethics-qi-audit-guide-md-quality-improvement">Quality Improvement</h2>
+<p>Usually aims to improve a local system or process.</p>
+<p>Examples:</p>
+<ul><li>introducing a checklist</li><li>improving documentation</li><li>reducing delays</li><li>improving handover quality</li></ul>
+<p>Possible requirements:</p>
+<ul><li>QI registration</li><li>governance review</li><li>local department approval</li><li>ethics review if publication/generalisation/data risk is involved</li></ul>
+<h2 id="04-australian-ethics-qi-audit-guide-md-case-reports">Case Reports</h2>
+<p>Case reports often require:</p>
+<ul><li>supervisor involvement</li><li>patient consent or local consent process</li><li>de-identification</li><li>journal/conference requirements</li><li>hospital policy compliance</li></ul>
+<p>Never assume a case is publishable just because names are removed.</p>
+<h2 id="04-australian-ethics-qi-audit-guide-md-what-to-ask-before-starting-any-project">What To Ask Before Starting Any Project</h2>
+<p>Ask your supervisor:</p>
+<ul><li>Is this research, audit, QI, evaluation, or a case report?</li><li>What approval pathway applies at this hospital/university?</li><li>Who is responsible for approval?</li><li>Can I access the data, and under what conditions?</li><li>Can this be submitted to a conference or journal?</li><li>Do we need patient consent?</li><li>Who will be listed as authors or contributors?</li><li>What is the expected output?</li><li>What is the target timeline?</li></ul>
+<h2 id="04-australian-ethics-qi-audit-guide-md-red-flags">Red Flags</h2>
+<p>Be careful if:</p>
+<ul><li>someone asks you to access patient records without a clear approval process</li><li>you are told &quot;just grab the data&quot; without governance</li><li>authorship is vague</li><li>there is no supervisor accountability</li><li>the project uses identifiable patient information without clear permission</li><li>the team wants publication but has not considered approvals</li></ul>
+<h2 id="04-australian-ethics-qi-audit-guide-md-student-safe-principle">Student-Safe Principle</h2>
+<p>If unsure, pause and ask:</p>
+<ul><li>supervisor</li><li>hospital research office</li><li>university research office</li><li>HREC contact</li><li>clinical governance / quality unit</li></ul>
+<p>It is better to clarify early than to spend months on a project that cannot be submitted.</p>
+<h2 id="04-australian-ethics-qi-audit-guide-md-useful-official-starting-points">Useful Official Starting Points</h2>
+<ul><li>NHMRC: Ethical considerations in quality assurance and evaluation activities</li><li>NHMRC: National Statement on Ethical Conduct in Human Research</li><li>EQUATOR Network: reporting guidelines</li><li>CARE: case report guideline</li><li>STROBE: observational study guideline</li><li>PRISMA: systematic review guideline</li></ul>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">05-literature-search-starter.md</div>
+              <h1 id="05-literature-search-starter-md-literature-search-starter">Literature Search Starter</h1>
+<p>Most beginners do one of two things:</p>
+<ul><li>search one vague phrase and save random papers</li><li>collect too many papers without knowing what question they are answering</li></ul>
+<p>This guide keeps it simple.</p>
+<h2 id="05-literature-search-starter-md-step-1-define-the-question">Step 1: Define the Question</h2>
+<p>Use PICO when relevant:</p>
+<ul><li>Population: who or what group?</li><li>Intervention/exposure: what treatment, exposure, tool, process, or issue?</li><li>Comparator: compared with what?</li><li>Outcome: what result matters?</li></ul>
+<p>For reviews that do not fit PICO, use:</p>
+<ul><li>Population</li><li>Concept</li><li>Context</li></ul>
+<h2 id="05-literature-search-starter-md-step-2-turn-the-question-into-search-blocks">Step 2: Turn the Question Into Search Blocks</h2>
+<p>Example topic:</p>
+<p>&quot;AI-assisted triage tools in emergency departments.&quot;</p>
+<p>Search blocks:</p>
+<ul><li>AI terms: artificial intelligence, machine learning, prediction model, algorithm</li><li>triage terms: triage, risk stratification, prioritisation</li><li>setting terms: emergency department, emergency medicine, ED</li></ul>
+<h2 id="05-literature-search-starter-md-step-3-build-search-strings">Step 3: Build Search Strings</h2>
+<p>Basic structure:</p>
+<p>(&quot;artificial intelligence&quot; OR &quot;machine learning&quot; OR algorithm) AND (triage OR &quot;risk stratification&quot;) AND (&quot;emergency department&quot; OR &quot;emergency medicine&quot;)</p>
+<h2 id="05-literature-search-starter-md-step-4-search-more-than-one-place">Step 4: Search More Than One Place</h2>
+<p>Beginner databases/tools:</p>
+<ul><li>PubMed</li><li>Google Scholar</li><li>university library search</li><li>Cochrane Library if relevant</li><li>specialty journal websites</li><li>reference lists from key papers</li></ul>
+<p>If doing a formal review, ask a librarian or supervisor before finalising the search.</p>
+<h2 id="05-literature-search-starter-md-step-5-track-what-you-search">Step 5: Track What You Search</h2>
+<p>Record:</p>
+<ul><li>database</li><li>date</li><li>exact search string</li><li>filters used</li><li>number of results</li><li>notes</li></ul>
+<p>Use <code>trackers/literature_matrix.csv</code>.</p>
+<h2 id="05-literature-search-starter-md-step-6-screen-quickly">Step 6: Screen Quickly</h2>
+<p>First pass:</p>
+<ul><li>title</li><li>abstract</li><li>relevance</li><li>study type</li><li>year</li><li>population</li></ul>
+<p>Keep:</p>
+<ul><li>highly relevant studies</li><li>recent reviews</li><li>guideline papers</li><li>landmark papers</li><li>papers from your supervisor/local team if relevant</li></ul>
+<p>Remove:</p>
+<ul><li>off-topic papers</li><li>wrong population</li><li>wrong setting</li><li>opinion pieces unless useful for background</li></ul>
+<h2 id="05-literature-search-starter-md-step-7-extract-useful-details">Step 7: Extract Useful Details</h2>
+<p>For each important paper:</p>
+<ul><li>citation</li><li>study design</li><li>population</li><li>sample size</li><li>intervention/exposure</li><li>outcome</li><li>key finding</li><li>limitation</li><li>how it helps your project</li></ul>
+<h2 id="05-literature-search-starter-md-step-8-turn-reading-into-writing">Step 8: Turn Reading Into Writing</h2>
+<p>Every paper should have a job.</p>
+<p>Jobs:</p>
+<ul><li>justifies the problem</li><li>explains current evidence</li><li>shows a gap</li><li>supports your method</li><li>compares your result</li><li>strengthens discussion</li></ul>
+<p>If you cannot explain why a paper is in your table, remove it.</p>
+<h2 id="05-literature-search-starter-md-ai-use">AI Use</h2>
+<p>AI can help summarise and structure your notes, but do not rely on it to verify citations or invent references.</p>
+<p>Always check:</p>
+<ul><li>title</li><li>authors</li><li>journal</li><li>year</li><li>DOI</li><li>actual conclusions</li></ul>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">06-output-and-publication-roadmap.md</div>
+              <h1 id="06-output-and-publication-roadmap-md-output-and-publication-roadmap">Output and Publication Roadmap</h1>
+<p>Research helps your CV when it becomes clear evidence of contribution.</p>
+<p>The aim is not only &quot;publication.&quot; Outputs can build towards publication.</p>
+<h2 id="06-output-and-publication-roadmap-md-output-ladder">Output Ladder</h2>
+<h3 id="06-output-and-publication-roadmap-md-level-1-project-evidence">Level 1: Project Evidence</h3>
+<ul><li>project brief</li><li>literature matrix</li><li>data extraction sheet</li><li>audit criteria table</li><li>ethics/governance submission support</li><li>meeting notes</li><li>contribution log</li></ul>
+<h3 id="06-output-and-publication-roadmap-md-level-2-local-output">Level 2: Local Output</h3>
+<ul><li>department presentation</li><li>hospital audit meeting</li><li>student society presentation</li><li>teaching session</li><li>poster draft</li></ul>
+<h3 id="06-output-and-publication-roadmap-md-level-3-conference-output">Level 3: Conference Output</h3>
+<ul><li>abstract</li><li>poster</li><li>oral presentation</li><li>conference proceedings</li><li>prize nomination</li></ul>
+<h3 id="06-output-and-publication-roadmap-md-level-4-publication-output">Level 4: Publication Output</h3>
+<ul><li>case report</li><li>audit/QI manuscript</li><li>review article</li><li>original research paper</li><li>letter/commentary</li></ul>
+<h2 id="06-output-and-publication-roadmap-md-how-to-turn-a-project-into-cv-evidence">How To Turn a Project Into CV Evidence</h2>
+<p>Track:</p>
+<ul><li>project title</li><li>supervisor</li><li>institution</li><li>your role</li><li>skills used</li><li>outputs created</li><li>presentation/submission/publication status</li><li>dates</li><li>evidence link</li><li>referee/contact</li></ul>
+<p>CV phrasing examples:</p>
+<ul><li>Assisted with literature review and data extraction for a retrospective audit of [topic].</li><li>Co-authored abstract submitted to [conference].</li><li>Presented findings at [department meeting/conference].</li><li>Developed data collection tool for quality improvement project assessing [standard].</li><li>Drafted background and discussion sections for a case report on [topic].</li></ul>
+<h2 id="06-output-and-publication-roadmap-md-what-to-clarify-early">What To Clarify Early</h2>
+<p>Before doing major work, ask:</p>
+<ul><li>What output are we aiming for?</li><li>Who is responsible for each section?</li><li>What is the timeline?</li><li>What are the authorship expectations?</li><li>Where will this be submitted?</li><li>What happens if the project stalls?</li></ul>
+<h2 id="06-output-and-publication-roadmap-md-authorship-basics">Authorship Basics</h2>
+<p>Authorship should reflect meaningful contribution and follow journal/institutional expectations.</p>
+<p>Do not assume:</p>
+<ul><li>&quot;I collected data&quot; always equals authorship</li><li>&quot;I know the supervisor&quot; means authorship</li><li>&quot;I started the project&quot; means first author</li></ul>
+<p>Use the contribution tracker so your work is visible.</p>
+<h2 id="06-output-and-publication-roadmap-md-submission-targets">Submission Targets</h2>
+<p>Possible targets:</p>
+<ul><li>university research day</li><li>hospital audit meeting</li><li>specialty society conference</li><li>student medical journal</li><li>case report journal</li><li>specialty conference</li><li>local poster day</li></ul>
+<p>Pick the target early so the format does not surprise you later.</p>
+<h2 id="06-output-and-publication-roadmap-md-beginner-rule">Beginner Rule</h2>
+<p>Every active project should have one next output.</p>
+<p>Examples:</p>
+<ul><li>case report: submit abstract by July</li><li>audit: present baseline data at department meeting</li><li>review: complete first screening pass</li><li>retrospective study: finalise data dictionary</li></ul>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">07-ai-prompt-vault.md</div>
+              <h1 id="07-ai-prompt-vault-md-ai-prompt-vault">AI Prompt Vault</h1>
+<p>Use these prompts to move faster, not to fake expertise. Always verify facts, references, ethics requirements, and clinical claims with real sources and your supervisor.</p>
+<h2 id="07-ai-prompt-vault-md-find-a-focused-research-question">Find a Focused Research Question</h2>
+<p>I am an Australian medical student interested in [specialty/topic]. I have [weekly time] available and [experience level]. Give me 10 realistic beginner research project ideas. For each idea, include project type, possible supervisor, likely data source, possible output, and biggest risk.</p>
+<h2 id="07-ai-prompt-vault-md-narrow-a-broad-topic">Narrow a Broad Topic</h2>
+<p>Turn this broad topic into 10 narrower research questions suitable for a medical student: [topic]. Prefer questions that could become a case report, audit/QI project, literature review, or retrospective study.</p>
+<h2 id="07-ai-prompt-vault-md-supervisor-shortlist">Supervisor Shortlist</h2>
+<p>I want to find supervisors in [specialty/location/university/hospital]. Create a search strategy for finding potential supervisors using PubMed, Google Scholar, hospital websites, university profiles, and specialty societies. Include what details I should record in a CRM.</p>
+<h2 id="07-ai-prompt-vault-md-tailor-a-research-outreach-email">Tailor a Research Outreach Email</h2>
+<p>Draft a concise email to Dr [Surname], a [specialty] consultant/researcher. I am a [year] medical student at [university]. I am interested in [topic] because [reason]. I found their work on [paper/project]. I want to ask whether there are any research projects I could assist with. Tone: respectful, specific, not too long, Australian medical student style.</p>
+<h2 id="07-ai-prompt-vault-md-improve-an-outreach-email">Improve an Outreach Email</h2>
+<p>Improve this email so it sounds specific, professional, and easy to reply to. Keep it concise and do not exaggerate my experience:</p>
+<p>[paste email]</p>
+<h2 id="07-ai-prompt-vault-md-prepare-for-supervisor-meeting">Prepare for Supervisor Meeting</h2>
+<p>I have a meeting with a potential research supervisor about [topic]. Create a 15-minute meeting agenda, questions to ask, and a short script for introducing myself. Include questions about approvals, authorship, timeline, data access, and output plan.</p>
+<h2 id="07-ai-prompt-vault-md-literature-search-terms">Literature Search Terms</h2>
+<p>For this research question: [question], create search term blocks using synonyms and related terms. Then create three PubMed-style search strings: broad, balanced, and narrow.</p>
+<h2 id="07-ai-prompt-vault-md-summarise-papers-into-a-matrix">Summarise Papers Into a Matrix</h2>
+<p>Create a literature matrix structure for papers on [topic]. Columns should include citation, study design, population, intervention/exposure, outcome, key finding, limitations, and how it informs my project.</p>
+<h2 id="07-ai-prompt-vault-md-turn-notes-into-an-abstract-draft">Turn Notes Into an Abstract Draft</h2>
+<p>Using the notes below, draft a structured abstract with Background, Methods, Results, and Conclusion. Mark missing information clearly instead of inventing details.</p>
+<p>[paste notes]</p>
+<h2 id="07-ai-prompt-vault-md-cv-evidence-wording">CV Evidence Wording</h2>
+<p>Turn this research involvement into 5 professional CV bullet points. Do not overstate my role. Include versions for contribution, presentation, abstract, and publication if applicable.</p>
+<p>[paste details]</p>
+<h2 id="07-ai-prompt-vault-md-project-rescue">Project Rescue</h2>
+<p>This research project has stalled. Details: [project, supervisor, last contact, current blocker, my role]. Create a respectful follow-up email and a rescue plan with three possible next actions.</p>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">scripts/research-outreach-email-scripts.md</div>
+              <h1 id="scripts-research-outreach-email-scripts-md-research-outreach-email-scripts">Research Outreach Email Scripts</h1>
+<p>Keep emails short, specific, and easy to reply to.</p>
+<h2 id="scripts-research-outreach-email-scripts-md-cold-email-no-prior-relationship">Cold Email: No Prior Relationship</h2>
+<p>Subject: Medical student research opportunity</p>
+<p>Dear Dr [Surname],</p>
+<p>My name is [Name], and I am a [year level] medical student at [University].</p>
+<p>I am interested in [specialty/area], particularly [specific topic]. I came across your work on [paper/project/service/clinic area], and I would be keen to learn whether there may be any research, audit, quality improvement, or case report projects I could assist with.</p>
+<p>I am happy to help with tasks such as literature searching, data collection, reference management, drafting sections, or preparing abstracts if useful.</p>
+<p>If you are available, I would be grateful for the chance to introduce myself briefly by email, Zoom, or in person.</p>
+<p>Kind regards,</p>
+<p>[Name] [Phone/email]</p>
+<h2 id="scripts-research-outreach-email-scripts-md-warm-email-placement-doctor">Warm Email: Placement Doctor</h2>
+<p>Subject: Research / audit opportunity</p>
+<p>Dear Dr [Surname],</p>
+<p>I hope you are well. My name is [Name], and I was recently attached to [team/rotation] as a [year level] medical student.</p>
+<p>I really enjoyed [specific part of the term], and I wanted to ask whether there are any research, audit, QI, or case report projects in the department that a student could assist with.</p>
+<p>I would be happy to help with literature searches, data collection, drafting, or abstract preparation, depending on what would be most useful.</p>
+<p>Thank you again for the teaching during the term.</p>
+<p>Kind regards,</p>
+<p>[Name]</p>
+<h2 id="scripts-research-outreach-email-scripts-md-email-after-seeing-a-paper">Email After Seeing a Paper</h2>
+<p>Subject: Medical student research enquiry regarding [topic]</p>
+<p>Dear Dr [Surname],</p>
+<p>My name is [Name], and I am a [year level] medical student at [University].</p>
+<p>I recently read your paper on [paper/topic], and I found [specific point] particularly interesting. I am interested in [specialty/area] and wanted to ask whether your team has any current or upcoming projects that a medical student could contribute to.</p>
+<p>I am especially keen to develop skills in literature review, data extraction, audit/QI work, and academic writing.</p>
+<p>If useful, I would be happy to send through my CV or briefly introduce myself.</p>
+<p>Kind regards,</p>
+<p>[Name]</p>
+<h2 id="scripts-research-outreach-email-scripts-md-follow-up-after-no-reply">Follow-Up After No Reply</h2>
+<p>Subject: Follow-up: medical student research opportunity</p>
+<p>Dear Dr [Surname],</p>
+<p>I hope you are well. I just wanted to follow up on my email below regarding possible research, audit, or QI opportunities.</p>
+<p>I completely understand if now is not a suitable time. If there is someone else in the team who may be better to contact, I would be grateful for any direction.</p>
+<p>Kind regards,</p>
+<p>[Name]</p>
+<h2 id="scripts-research-outreach-email-scripts-md-short-referral-email">Short Referral Email</h2>
+<p>Subject: Medical student research enquiry</p>
+<p>Dear Dr [Surname],</p>
+<p>My name is [Name], and I am a [year level] medical student at [University]. Dr [Referrer] suggested I contact you because of your work in [area].</p>
+<p>I am interested in getting involved in research, audit, QI, or case report work, and I would be grateful for any opportunity to assist the team.</p>
+<p>I am happy to help with literature searches, data collection, drafting, or abstract preparation.</p>
+<p>Kind regards,</p>
+<p>[Name]</p>
+<h2 id="scripts-research-outreach-email-scripts-md-what-makes-the-email-work">What Makes the Email Work</h2>
+<ul><li>It names who you are.</li><li>It shows a real reason for contacting them.</li><li>It offers practical help.</li><li>It does not demand a project.</li><li>It makes replying easy.</li></ul>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">scripts/supervisor-meeting-scripts.md</div>
+              <h1 id="scripts-supervisor-meeting-scripts-md-supervisor-meeting-scripts">Supervisor Meeting Scripts</h1>
+<h2 id="scripts-supervisor-meeting-scripts-md-15-minute-meeting-agenda">15-Minute Meeting Agenda</h2>
+<ol><li>Introduce yourself</li><li>Explain your interest and availability</li><li>Ask what projects are active or realistic</li><li>Clarify approval/governance requirements</li><li>Clarify your role</li><li>Clarify output and timeline</li><li>Agree next action</li></ol>
+<h2 id="scripts-supervisor-meeting-scripts-md-introduction-script">Introduction Script</h2>
+<p>Thank you for meeting with me. I am a [year level] medical student at [University], and I am interested in [specialty/topic]. I am hoping to get involved in a realistic research, audit, QI, or case report project where I can contribute consistently and learn the process properly.</p>
+<p>At the moment, I can commit around [time] per week. I am comfortable helping with literature searches, data extraction, reference management, drafting, and abstract preparation.</p>
+<h2 id="scripts-supervisor-meeting-scripts-md-questions-to-ask">Questions To Ask</h2>
+<p>Project:</p>
+<ul><li>What projects are currently active in the team?</li><li>Are there any projects suitable for a medical student?</li><li>Is the question already defined?</li><li>What is the expected timeline?</li></ul>
+<p>Approvals:</p>
+<ul><li>Is this research, audit, QI, evaluation, or case report?</li><li>What approvals or governance steps are required?</li><li>Has anything already been submitted or approved?</li><li>Can a student access the data?</li></ul>
+<p>Role:</p>
+<ul><li>What would my first task be?</li><li>How often should I update you?</li><li>Who else is involved?</li><li>What skills should I learn before starting?</li></ul>
+<p>Output:</p>
+<ul><li>Are we aiming for a poster, abstract, presentation, or manuscript?</li><li>Is there a target conference or journal?</li><li>How will contribution/authorship be decided?</li></ul>
+<h2 id="scripts-supervisor-meeting-scripts-md-end-of-meeting-close">End-of-Meeting Close</h2>
+<p>Thank you, that sounds helpful. To make sure I understood correctly, my next step is to [next action] by [date]. I will update [person] once that is done, and we can then decide the next stage.</p>
+<h2 id="scripts-supervisor-meeting-scripts-md-after-meeting-email">After-Meeting Email</h2>
+<p>Subject: Thank you and next steps</p>
+<p>Dear Dr [Surname],</p>
+<p>Thank you for meeting with me today.</p>
+<p>My understanding is that the next step is for me to [task] by [date]. I will also [second task if relevant].</p>
+<p>I will keep track of progress and send through an update once completed.</p>
+<p>Kind regards,</p>
+<p>[Name]</p>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">scripts/follow-up-and-rescue-scripts.md</div>
+              <h1 id="scripts-follow-up-and-rescue-scripts-md-follow-up-and-rescue-scripts">Follow-Up and Rescue Scripts</h1>
+<h2 id="scripts-follow-up-and-rescue-scripts-md-follow-up-after-first-email">Follow-Up After First Email</h2>
+<p>Subject: Follow-up regarding research opportunity</p>
+<p>Dear Dr [Surname],</p>
+<p>I hope you are well. I just wanted to follow up on my previous email regarding possible research, audit, QI, or case report opportunities.</p>
+<p>I completely understand if you are busy. If there is someone else in the team who may be more appropriate to contact, I would be grateful for any direction.</p>
+<p>Kind regards,</p>
+<p>[Name]</p>
+<h2 id="scripts-follow-up-and-rescue-scripts-md-follow-up-after-a-meeting">Follow-Up After a Meeting</h2>
+<p>Subject: Follow-up regarding [project/topic]</p>
+<p>Dear Dr [Surname],</p>
+<p>I hope you are well. I wanted to follow up on [project/topic] and ask whether there are any next steps I can help with.</p>
+<p>I am happy to work on [literature search/data collection/draft abstract/table/manuscript section] if useful.</p>
+<p>No rush at all, but I wanted to stay proactive and keep the project moving where I can.</p>
+<p>Kind regards,</p>
+<p>[Name]</p>
+<h2 id="scripts-follow-up-and-rescue-scripts-md-project-has-stalled">Project Has Stalled</h2>
+<p>Subject: Checking next steps for [project/topic]</p>
+<p>Dear Dr [Surname],</p>
+<p>I hope you are well. I wanted to check in regarding [project/topic].</p>
+<p>My current understanding is that the next step is [blocker/next step]. I am happy to help move this forward by [specific task], or if priorities have changed, I completely understand.</p>
+<p>Please let me know what would be most useful.</p>
+<p>Kind regards,</p>
+<p>[Name]</p>
+<h2 id="scripts-follow-up-and-rescue-scripts-md-asking-for-clear-direction">Asking for Clear Direction</h2>
+<p>Subject: Next steps for [project/topic]</p>
+<p>Dear Dr [Surname],</p>
+<p>I hope you are well. I wanted to make sure I am using my time effectively on [project/topic].</p>
+<p>Would it be helpful for me to focus on one of the following next steps?</p>
+<ol><li>update the literature search</li><li>prepare a summary table</li><li>draft an abstract outline</li><li>clean the data extraction sheet</li><li>pause until approvals/data access are confirmed</li></ol>
+<p>Happy to follow whichever direction is most useful.</p>
+<p>Kind regards,</p>
+<p>[Name]</p>
+<h2 id="scripts-follow-up-and-rescue-scripts-md-withdrawing-politely">Withdrawing Politely</h2>
+<p>Subject: [Project/topic]</p>
+<p>Dear Dr [Surname],</p>
+<p>Thank you again for the opportunity to be involved in [project/topic].</p>
+<p>At this stage, I do not think I can contribute to the standard the project deserves alongside my current commitments, so I wanted to be upfront rather than risk delaying the team.</p>
+<p>I am grateful for the opportunity and hope to work together in the future if timing is better.</p>
+<p>Kind regards,</p>
+<p>[Name]</p>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">templates/case-report-template.md</div>
+              <h1 id="templates-case-report-template-md-case-report-template">Case Report Template</h1>
+<h2 id="templates-case-report-template-md-working-title">Working Title</h2>
+<p>[Condition/presentation/intervention]: a case report</p>
+<h2 id="templates-case-report-template-md-why-this-case-matters">Why This Case Matters</h2>
+<ul><li>What is unusual?</li><li>What is the learning point?</li><li>Why would a reader care?</li><li>Is there a diagnostic, management, systems, or communication lesson?</li></ul>
+<h2 id="templates-case-report-template-md-patient-consent-local-requirements">Patient Consent / Local Requirements</h2>
+<ul><li>Local process checked:</li><li>Consent status:</li><li>Supervisor responsible:</li><li>De-identification checked:</li><li>Journal/conference requirements checked:</li></ul>
+<h2 id="templates-case-report-template-md-timeline">Timeline</h2>
+<table><tr><th>Time</th><th>Event</th></tr><tr><td>Day 0</td><td>Presentation</td></tr><tr><td>Day X</td><td>Investigation/intervention</td></tr><tr><td>Day X</td><td>Outcome/follow-up</td></tr></table>
+<h2 id="templates-case-report-template-md-case-summary">Case Summary</h2>
+<h3 id="templates-case-report-template-md-background">Background</h3>
+<p>Briefly explain the clinical context and why this case is relevant.</p>
+<h3 id="templates-case-report-template-md-case-presentation">Case Presentation</h3>
+<p>Include only necessary details:</p>
+<ul><li>age range if appropriate</li><li>relevant history</li><li>presenting symptoms</li><li>examination</li><li>investigations</li><li>diagnosis</li><li>management</li><li>outcome/follow-up</li></ul>
+<h3 id="templates-case-report-template-md-discussion">Discussion</h3>
+<p>Cover:</p>
+<ul><li>what is already known</li><li>what is unusual or important</li><li>comparison to existing literature</li><li>clinical learning point</li><li>limitations</li></ul>
+<h3 id="templates-case-report-template-md-learning-points">Learning Points</h3>
+<ul><li>Learning point 1</li><li>Learning point 2</li><li>Learning point 3</li></ul>
+<h2 id="templates-case-report-template-md-references">References</h2>
+<p>Use the target journal style.</p>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">templates/audit-qi-project-template.md</div>
+              <h1 id="templates-audit-qi-project-template-md-audit-qi-project-template">Audit / QI Project Template</h1>
+<h2 id="templates-audit-qi-project-template-md-project-title">Project Title</h2>
+<p>[Process/standard] in [setting]: an audit / quality improvement project</p>
+<h2 id="templates-audit-qi-project-template-md-problem">Problem</h2>
+<p>What clinical or system problem are you addressing?</p>
+<h2 id="templates-audit-qi-project-template-md-standard">Standard</h2>
+<p>What guideline, policy, benchmark, or standard are you comparing practice against?</p>
+<p>Examples:</p>
+<ul><li>local hospital policy</li><li>national guideline</li><li>specialty society recommendation</li><li>department target</li></ul>
+<h2 id="templates-audit-qi-project-template-md-aim">Aim</h2>
+<p>By [date], improve/measure [process/outcome] in [population/setting] from [baseline if known] to [target if known].</p>
+<h2 id="templates-audit-qi-project-template-md-setting">Setting</h2>
+<ul><li>hospital:</li><li>department:</li><li>patient group:</li><li>time period:</li></ul>
+<h2 id="templates-audit-qi-project-template-md-governance">Governance</h2>
+<ul><li>project category: audit / QI / research / unsure</li><li>local approval needed:</li><li>supervisor:</li><li>data access plan:</li><li>patient consent considerations:</li></ul>
+<h2 id="templates-audit-qi-project-template-md-measures">Measures</h2>
+<h3 id="templates-audit-qi-project-template-md-process-measures">Process Measures</h3>
+<ul><li>measure 1:</li><li>measure 2:</li></ul>
+<h3 id="templates-audit-qi-project-template-md-outcome-measures">Outcome Measures</h3>
+<ul><li>measure 1:</li><li>measure 2:</li></ul>
+<h3 id="templates-audit-qi-project-template-md-balancing-measures">Balancing Measures</h3>
+<ul><li>possible unintended consequence:</li></ul>
+<h2 id="templates-audit-qi-project-template-md-data-collection-plan">Data Collection Plan</h2>
+<ul><li>inclusion criteria:</li><li>exclusion criteria:</li><li>data source:</li><li>sample size:</li><li>variables:</li><li>who collects data:</li><li>storage:</li></ul>
+<h2 id="templates-audit-qi-project-template-md-intervention">Intervention</h2>
+<p>If QI:</p>
+<ul><li>intervention:</li><li>who will implement:</li><li>when:</li><li>expected barrier:</li><li>how success will be measured:</li></ul>
+<h2 id="templates-audit-qi-project-template-md-output-plan">Output Plan</h2>
+<ul><li>department presentation:</li><li>poster:</li><li>conference:</li><li>manuscript:</li><li>CV evidence:</li></ul>
+<h2 id="templates-audit-qi-project-template-md-next-actions">Next Actions</h2>
+<ul><li>action 1:</li><li>action 2:</li><li>action 3:</li></ul>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">templates/abstract-template.md</div>
+              <h1 id="templates-abstract-template-md-abstract-template">Abstract Template</h1>
+<h2 id="templates-abstract-template-md-title">Title</h2>
+<p>[Clear, specific title]</p>
+<h2 id="templates-abstract-template-md-background">Background</h2>
+<p>1-2 sentences:</p>
+<ul><li>What is the problem?</li><li>Why does it matter?</li><li>What gap does this project address?</li></ul>
+<h2 id="templates-abstract-template-md-aim">Aim</h2>
+<p>This project aimed to [measure/evaluate/describe/compare/improve] [topic] in [population/setting].</p>
+<h2 id="templates-abstract-template-md-methods">Methods</h2>
+<p>Include:</p>
+<ul><li>design</li><li>setting</li><li>population</li><li>time period</li><li>data source</li><li>key variables</li><li>analysis method</li><li>approval/governance if relevant</li></ul>
+<h2 id="templates-abstract-template-md-results">Results</h2>
+<p>Include:</p>
+<ul><li>sample size</li><li>main numerical findings</li><li>secondary findings</li><li>important comparisons</li></ul>
+<p>Do not invent results if data is not complete.</p>
+<h2 id="templates-abstract-template-md-conclusion">Conclusion</h2>
+<p>Include:</p>
+<ul><li>main takeaway</li><li>implication</li><li>next step</li></ul>
+<h2 id="templates-abstract-template-md-before-submitting">Before Submitting</h2>
+<p>Check:</p>
+<ul><li>word count</li><li>author list</li><li>affiliations</li><li>supervisor approval</li><li>governance/ethics wording</li><li>conference formatting</li><li>conflict of interest</li><li>references if required</li></ul>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">templates/manuscript-section-template.md</div>
+              <h1 id="templates-manuscript-section-template-md-manuscript-section-template">Manuscript Section Template</h1>
+<h2 id="templates-manuscript-section-template-md-title-page">Title Page</h2>
+<ul><li>title</li><li>authors</li><li>affiliations</li><li>corresponding author</li><li>word count</li><li>abstract word count</li><li>keywords</li></ul>
+<h2 id="templates-manuscript-section-template-md-abstract">Abstract</h2>
+<p>Use the target journal format.</p>
+<h2 id="templates-manuscript-section-template-md-introduction">Introduction</h2>
+<p>Paragraph 1:</p>
+<ul><li>establish clinical/research problem</li></ul>
+<p>Paragraph 2:</p>
+<ul><li>summarise current evidence</li></ul>
+<p>Paragraph 3:</p>
+<ul><li>identify gap and aim</li></ul>
+<h2 id="templates-manuscript-section-template-md-methods">Methods</h2>
+<p>Include:</p>
+<ul><li>study design</li><li>setting</li><li>participants/sample</li><li>inclusion/exclusion criteria</li><li>data source</li><li>variables</li><li>outcomes</li><li>statistical analysis</li><li>ethics/governance</li></ul>
+<h2 id="templates-manuscript-section-template-md-results">Results</h2>
+<p>Include:</p>
+<ul><li>sample description</li><li>primary findings</li><li>secondary findings</li><li>tables/figures</li></ul>
+<h2 id="templates-manuscript-section-template-md-discussion">Discussion</h2>
+<p>Paragraph 1:</p>
+<ul><li>main finding</li></ul>
+<p>Paragraph 2:</p>
+<ul><li>comparison to literature</li></ul>
+<p>Paragraph 3:</p>
+<ul><li>implications</li></ul>
+<p>Paragraph 4:</p>
+<ul><li>limitations</li></ul>
+<p>Paragraph 5:</p>
+<ul><li>conclusion/future work</li></ul>
+<h2 id="templates-manuscript-section-template-md-tables-and-figures">Tables and Figures</h2>
+<ul><li>Table 1: baseline characteristics</li><li>Table 2: main results</li><li>Figure 1: flow diagram/process/results</li></ul>
+<h2 id="templates-manuscript-section-template-md-references">References</h2>
+<p>Check target journal style.</p>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">trackers/research_pipeline.csv</div>
+              
+    <div class="table-scroll">
+      <table>
+        <tr><th>Project</th><th>Type</th><th>Specialty</th><th>Supervisor</th><th>Institution</th><th>Status</th><th>Current Blocker</th><th>Next Action</th><th>Next Action Date</th><th>Target Output</th><th>Target Date</th><th>Approval Status</th><th>Your Role</th><th>Priority</th><th>Notes</th></tr>
+        <tr><td>Example antibiotic timing audit</td><td>Audit/QI</td><td>Surgery</td><td>Dr Example</td><td>Example Hospital</td><td>Idea</td><td>Need supervisor confirmation</td><td>Email consultant</td><td>2026-06-10</td><td>Department presentation</td><td>2026-08-01</td><td>Not started</td><td>Student contributor</td><td>High</td><td>Replace with your own project</td></tr><tr><td>Example unusual imaging case</td><td>Case report</td><td>Radiology</td><td>Dr Example</td><td>Example Hospital</td><td>Contacted</td><td>Awaiting reply</td><td>Follow up</td><td>2026-06-14</td><td>Case report abstract</td><td>2026-09-01</td><td>Consent/check local process</td><td>Literature search and draft</td><td>Medium</td><td>Replace with your own project</td></tr><tr><td>Example AI triage review</td><td>Literature review</td><td>Emergency</td><td>Dr Example</td><td>University</td><td>Scoping</td><td>Question too broad</td><td>Narrow PICO</td><td>2026-06-12</td><td>Conference poster</td><td>2026-10-01</td><td>N/A until design confirmed</td><td>Search and matrix</td><td>Medium</td><td>Replace with your own project</td></tr>
+      </table>
+    </div>
+  
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">trackers/supervisor_crm.csv</div>
+              
+    <div class="table-scroll">
+      <table>
+        <tr><th>Name</th><th>Title</th><th>Specialty</th><th>Institution</th><th>Source</th><th>Relevant Work</th><th>Email</th><th>Date Contacted</th><th>Follow-Up Date</th><th>Response</th><th>Meeting Date</th><th>Possible Project</th><th>Status</th><th>Notes</th></tr>
+        <tr><td>Dr Example</td><td>Consultant</td><td>Surgery</td><td>Example Hospital</td><td>Placement</td><td>Audit/QI in perioperative care</td><td>example@email.com</td><td>2026-06-01</td><td>2026-06-10</td><td>No reply yet</td><td></td><td>Antibiotic timing audit</td><td>Contacted</td><td>Replace with your own contact</td></tr><tr><td>A/Prof Example</td><td>Academic</td><td>Emergency</td><td>Example University</td><td>PubMed</td><td>AI triage papers</td><td>example@email.com</td><td>2026-06-02</td><td>2026-06-12</td><td>Interested</td><td></td><td>AI triage review</td><td>Warm lead</td><td>Read 2 papers before meeting</td></tr>
+      </table>
+    </div>
+  
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">trackers/literature_matrix.csv</div>
+              
+    <div class="table-scroll">
+      <table>
+        <tr><th>Citation</th><th>Year</th><th>Study Design</th><th>Population</th><th>Setting</th><th>Intervention_or_Exposure</th><th>Comparator</th><th>Outcome</th><th>Key Finding</th><th>Limitations</th><th>How It Helps This Project</th><th>Quality_Notes</th><th>PDF_Link</th></tr>
+        <tr><td>Author et al. Example title</td><td>2024</td><td>Retrospective cohort</td><td>Adults with condition</td><td>Tertiary hospital</td><td>Exposure</td><td>Comparator</td><td>Primary outcome</td><td>Main finding</td><td>Small sample</td><td>Supports background</td><td></td><td></td></tr>
+      </table>
+    </div>
+  
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">trackers/conference_journal_tracker.csv</div>
+              
+    <div class="table-scroll">
+      <table>
+        <tr><th>Target</th><th>Type</th><th>Specialty</th><th>Location_or_URL</th><th>Submission_Deadline</th><th>Event_or_Publication_Date</th><th>Word_Count</th><th>Format</th><th>Fees</th><th>Eligibility</th><th>Status</th><th>Notes</th></tr>
+        <tr><td>Example State Research Day</td><td>Conference</td><td>General</td><td>URL</td><td>2026-07-01</td><td>2026-09-01</td><td>250</td><td>Abstract</td><td>Check</td><td>Students allowed</td><td>Considering</td><td>Replace with real target</td></tr><tr><td>Example Case Report Journal</td><td>Journal</td><td>General</td><td>URL</td><td></td><td></td><td>1500</td><td>Case report</td><td>Check APC</td><td>Case reports accepted</td><td>Considering</td><td>Check consent and journal requirements</td></tr>
+      </table>
+    </div>
+  
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">trackers/authorship_contribution_tracker.csv</div>
+              
+    <div class="table-scroll">
+      <table>
+        <tr><th>Project</th><th>Person</th><th>Role</th><th>Contribution</th><th>Dates</th><th>Agreed_Authorship_Position</th><th>Confirmed_By</th><th>Evidence_Link</th><th>Notes</th></tr>
+        <tr><td>Example antibiotic timing audit</td><td>Your Name</td><td>Medical student</td><td>Literature search, data extraction, abstract draft</td><td>2026-06 to 2026-08</td><td>To be discussed</td><td>Dr Example</td><td></td><td>Update after supervisor discussion</td></tr><tr><td>Example antibiotic timing audit</td><td>Dr Example</td><td>Supervisor</td><td>Project design, governance, final review</td><td>2026-06 to 2026-08</td><td>Senior/corresponding author</td><td>Dr Example</td><td></td><td></td></tr>
+      </table>
+    </div>
+  
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">trackers/data_extraction_template.csv</div>
+              
+    <div class="table-scroll">
+      <table>
+        <tr><th>Study_ID</th><th>Patient_or_Record_ID_Deidentified</th><th>Inclusion_Check</th><th>Exclusion_Check</th><th>Age_Group</th><th>Sex</th><th>Date_Range</th><th>Variable_1</th><th>Variable_2</th><th>Variable_3</th><th>Outcome_1</th><th>Outcome_2</th><th>Missing_Data_Notes</th><th>Reviewer</th><th>Date_Extracted</th><th>Query_Flag</th></tr>
+        <tr><td>1</td><td>ID001</td><td>Yes</td><td>No</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>false</td></tr>
+      </table>
+    </div>
+  
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">08-market-research-and-offer-notes.md</div>
+              <h1 id="08-market-research-and-offer-notes-md-market-research-and-offer-notes">Market Research and Offer Notes</h1>
+<p>This is a working research note for building the ResearchStack Starter product.</p>
+<h2 id="08-market-research-and-offer-notes-md-observed-market-pattern">Observed Market Pattern</h2>
+<p>Medical research education offers tend to sell one of four outcomes:</p>
+<ol><li>start research without confusion</li><li>get published faster</li><li>learn academic writing</li><li>get mentorship/review/support</li></ol>
+<p>The strongest offers are not just &quot;templates.&quot; They combine:</p>
+<ul><li>step-by-step path</li><li>practical templates</li><li>checklists</li><li>scripts</li><li>examples</li><li>confidence for beginners</li><li>clear promise around output</li></ul>
+<h2 id="08-market-research-and-offer-notes-md-useful-competitor-inspiration-notes">Useful Competitor / Inspiration Notes</h2>
+<h3 id="08-market-research-and-offer-notes-md-your-research-coach-dr-simona-ippoliti">Your Research Coach / Dr Simona Ippoliti</h3>
+<p>Public positioning focuses on helping doctors, medical students, and healthcare professionals publish despite busy clinical work. The offer ladder includes lower-ticket research foundations and higher-ticket writing/publishing systems with tools, templates, AI support, and review/coaching.</p>
+<p>What to learn:</p>
+<ul><li>strong beginner pain: &quot;I do not know where to start&quot;</li><li>clear pathway language</li><li>practical templates matter</li><li>writing and publication are premium outcomes</li><li>coaching/review pushes the price higher</li></ul>
+<p>What not to copy:</p>
+<ul><li>do not overpromise publication</li><li>do not rely on generic &quot;get published&quot; language only</li><li>keep Australian student context as our difference</li></ul>
+<h3 id="08-market-research-and-offer-notes-md-research-mentorship-publication-programs">Research Mentorship / Publication Programs</h3>
+<p>Many programs focus on systematic reviews, meta-analyses, case reports, or &quot;zero to publication&quot; mentorship.</p>
+<p>What to learn:</p>
+<ul><li>research beginners want someone to reduce ambiguity</li><li>high-ticket offers usually include active mentorship or direct project participation</li><li>self-serve products need to be cheaper unless the assets are extremely strong</li></ul>
+<h3 id="08-market-research-and-offer-notes-md-student-pain-from-forums-and-public-discussions">Student Pain from Forums and Public Discussions</h3>
+<p>Repeated themes:</p>
+<ul><li>students feel research is important but hard to enter</li><li>some are wary of pay-to-publish or guru-style offers</li><li>students want legitimate supervisors and real outputs</li><li>authorship expectations are confusing</li><li>projects often stall</li><li>Australian students care about CV relevance for specialty training</li></ul>
+<p>Product implication:</p>
+<ul><li>be honest and trust-building</li><li>position as structure, not guaranteed publication</li><li>teach students how to avoid vague/stalled projects</li><li>include authorship and contribution tracking</li><li>include &quot;what to ask before joining&quot; scripts</li></ul>
+<h2 id="08-market-research-and-offer-notes-md-differentiation-for-the-medstack">Differentiation for The MedStack</h2>
+<p>ResearchStack Starter should be:</p>
+<ul><li>Australia-aware</li><li>medical student specific</li><li>research-to-CV focused</li><li>practical before academic</li><li>built around scripts, trackers, and decision support</li><li>aligned with the MedStack OS ecosystem</li></ul>
+<h2 id="08-market-research-and-offer-notes-md-pricing-view">Pricing View</h2>
+<h3 id="08-market-research-and-offer-notes-md-self-serve-version">Self-Serve Version</h3>
+<p>Likely launch range:</p>
+<ul><li>AUD 197 for ResearchStack Starter</li><li>AUD 249-299 if bundled with strong templates, sheets, and AI prompt vault</li></ul>
+<h3 id="08-market-research-and-offer-notes-md-bundle-with-medstack-os">Bundle With MedStack OS</h3>
+<p>Possible offer:</p>
+<ul><li>MedStack OS Complete Bundle: AUD 199 founding access</li><li>Includes full OS plus Research Starter Pack, CV Evidence Pack, Scripts Vault, and PDF checklists</li></ul>
+<h3 id="08-market-research-and-offer-notes-md-higher-ticket-future-version">Higher-Ticket Future Version</h3>
+<p>AUD 499-999 becomes more realistic if it includes:</p>
+<ul><li>recorded walkthroughs</li><li>supervisor email review</li><li>project idea review</li><li>CV/research profile review</li><li>office hours</li><li>cohort support</li><li>direct feedback on abstract/manuscript sections</li></ul>
+<h2 id="08-market-research-and-offer-notes-md-source-links-to-revisit">Source Links To Revisit</h2>
+<ul><li>Your Research Coach: https://yourresearchcoach.com/</li><li>Your Research Coach products: https://yourresearchcoach.com/products</li><li>NHMRC National Statement: https://www.nhmrc.gov.au/about-us/publications/national-statement-ethical-conduct-human-research-2023</li><li>NHMRC QA/evaluation ethics guidance: https://www.nhmrc.gov.au/sites/default/files/documents/attachments/ethical-considerations-in-quality-assurance-and-evaluation-activites.pdf</li><li>EQUATOR reporting guidelines: https://www.equator-network.org/reporting-guidelines/</li><li>RACS generic selection requirements: https://www.surgeons.org/become-a-surgeon/set-selection-requirements-process-and-application/generic-eligibility-requirements-for-selection</li><li>General Surgeons Australia research requirement: https://generalsurgeons.com.au/home/for-trainees/training-program/set-program/research-requirement/</li></ul>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">09-sales-page-draft.md</div>
+              <h1 id="09-sales-page-draft-md-researchstack-starter-sales-page-draft">ResearchStack Starter Sales Page Draft</h1>
+<h2 id="09-sales-page-draft-md-hero">Hero</h2>
+<p>ResearchStack Starter</p>
+<p>The practical research launch system for Australian medical students who want to find projects, contact supervisors, and build CV-worthy research outputs without guessing.</p>
+<p>Button:</p>
+<p>Get ResearchStack Starter</p>
+<p>Secondary:</p>
+<p>See what is inside</p>
+<h2 id="09-sales-page-draft-md-pain-section">Pain Section</h2>
+<p>Medical students are told research matters.</p>
+<p>But nobody shows you:</p>
+<ul><li>who to email</li><li>what to say</li><li>what project type to start with</li><li>what counts as a real output</li><li>how to avoid stalled projects</li><li>how to track your contribution</li><li>how audit, QI, ethics, and publication fit together in Australia</li></ul>
+<p>So most students either wait too long, send vague emails, join unclear projects, or collect random tasks that never become a CV point.</p>
+<h2 id="09-sales-page-draft-md-product-section">Product Section</h2>
+<p>ResearchStack Starter gives you the structure to start properly.</p>
+<p>Inside, you get:</p>
+<ul><li>30-day research sprint</li><li>project type playbook</li><li>supervisor outreach scripts</li><li>follow-up and rescue scripts</li><li>literature search starter</li><li>audit/QI/case report templates</li><li>abstract and manuscript templates</li><li>research pipeline tracker</li><li>supervisor CRM</li><li>literature matrix</li><li>authorship and contribution tracker</li><li>conference/journal tracker</li><li>AI prompt vault</li><li>Australia-specific ethics/QI orientation</li></ul>
+<h2 id="09-sales-page-draft-md-outcome-section">Outcome Section</h2>
+<p>By the end, you should have:</p>
+<ul><li>a realistic project direction</li><li>a shortlist of supervisors</li><li>emails ready to send</li><li>a live research pipeline</li><li>one drafted project brief</li><li>one next action for this week</li><li>a way to turn research work into CV evidence</li></ul>
+<h2 id="09-sales-page-draft-md-trust-section">Trust Section</h2>
+<p>No publication promises.</p>
+<p>No shortcuts around ethics or authorship.</p>
+<p>No vague &quot;just network more&quot; advice.</p>
+<p>Just the system most medical students wish someone gave them before they started emailing consultants.</p>
+<h2 id="09-sales-page-draft-md-bundle-section">Bundle Section</h2>
+<p>Best with The MedStack OS.</p>
+<p>Use ResearchStack Starter to build the research pipeline.</p>
+<p>Use The MedStack OS to track your CV evidence, applications, rotations, and career progress in one place.</p>
+<h2 id="09-sales-page-draft-md-faq">FAQ</h2>
+<h3 id="09-sales-page-draft-md-is-this-only-for-australian-students">Is this only for Australian students?</h3>
+<p>It is built with Australian medical students in mind, especially around audit/QI, hospital governance, and specialty CV thinking. The general research process is still useful elsewhere, but students outside Australia should check their local ethics and training requirements.</p>
+<h3 id="09-sales-page-draft-md-does-this-guarantee-publication">Does this guarantee publication?</h3>
+<p>No. It helps you start properly, find opportunities, communicate professionally, and track your work. Publication depends on the project, supervisor, approvals, data, writing, journal/conference decisions, and follow-through.</p>
+<h3 id="09-sales-page-draft-md-is-there-video-content">Is there video content?</h3>
+<p>Not in the starter version. This is designed as a practical pack of guides, templates, trackers, scripts, and prompts.</p>
+<h3 id="09-sales-page-draft-md-do-i-need-prior-research-experience">Do I need prior research experience?</h3>
+<p>No. It is built for students who are starting from zero or who have tried to start but feel stuck.</p>
+<h3 id="09-sales-page-draft-md-is-this-medical-legal-or-ethics-advice">Is this medical, legal, or ethics advice?</h3>
+<p>No. It is educational and organisational. Always check your supervisor, university, hospital research office, and HREC requirements.</p>
+            </div>
+          </section>
+        
+          <section>
+            <div class="section-shell">
+              <div class="file-label">10-content-seeds.md</div>
+              <h1 id="10-content-seeds-md-researchstack-content-seeds">ResearchStack Content Seeds</h1>
+<p>These can become Instagram reels, carousels, TikToks, or website sections.</p>
+<h2 id="10-content-seeds-md-reel-1-why-most-med-student-research-goes-nowhere">Reel 1: Why Most Med Student Research Goes Nowhere</h2>
+<p>Hook:</p>
+<p>Most medical students do not fail research because they are lazy. They fail because the project has no next action.</p>
+<p>Points:</p>
+<ul><li>vague supervisor</li><li>vague question</li><li>vague authorship</li><li>vague output</li><li>no follow-up date</li></ul>
+<p>CTA:</p>
+<p>Build a research pipeline before you chase publications.</p>
+<h2 id="10-content-seeds-md-reel-2-the-email-that-gets-ignored">Reel 2: The Email That Gets Ignored</h2>
+<p>Hook:</p>
+<p>If your research email says &quot;I am interested in research opportunities,&quot; that is probably why nobody replies.</p>
+<p>Better structure:</p>
+<ul><li>who you are</li><li>why them</li><li>what topic</li><li>what you can help with</li><li>easy next step</li></ul>
+<p>CTA:</p>
+<p>Use a specific email, not a desperate one.</p>
+<h2 id="10-content-seeds-md-reel-3-best-first-research-projects">Reel 3: Best First Research Projects</h2>
+<p>Hook:</p>
+<p>If you are a med student starting research, do not begin with a huge prospective study.</p>
+<p>Better first projects:</p>
+<ul><li>case report</li><li>audit/QI</li><li>focused literature review</li><li>medical education project</li></ul>
+<p>CTA:</p>
+<p>Pick the project with the shortest path to a real output.</p>
+<h2 id="10-content-seeds-md-reel-4-research-red-flags">Reel 4: Research Red Flags</h2>
+<p>Hook:</p>
+<p>Before joining a research project, ask these questions or you may waste six months.</p>
+<p>Questions:</p>
+<ul><li>What is the output?</li><li>What is my role?</li><li>What approval is needed?</li><li>Who is supervising?</li><li>What is the next action?</li><li>How is authorship decided?</li></ul>
+<h2 id="10-content-seeds-md-reel-5-audit-vs-research">Reel 5: Audit vs Research</h2>
+<p>Hook:</p>
+<p>Med students hear &quot;just do an audit&quot; all the time, but nobody explains what that actually means.</p>
+<p>Points:</p>
+<ul><li>audit compares practice to a standard</li><li>QI improves a process</li><li>research aims to generate broader knowledge</li><li>local approval still matters</li></ul>
+<p>CTA:</p>
+<p>Ask the governance question before touching data.</p>
+<h2 id="10-content-seeds-md-reel-6-cv-evidence">Reel 6: CV Evidence</h2>
+<p>Hook:</p>
+<p>Research does not help your CV if you cannot prove what you actually did.</p>
+<p>Track:</p>
+<ul><li>project title</li><li>supervisor</li><li>your role</li><li>output</li><li>date</li><li>evidence</li><li>referee/contact</li></ul>
+<p>CTA:</p>
+<p>Your future CV is built from today's evidence log.</p>
+<h2 id="10-content-seeds-md-carousel-1-how-to-start-research-in-medical-school">Carousel 1: How To Start Research in Medical School</h2>
+<p>Slides:</p>
+<ol><li>Stop waiting for someone to hand you a project.</li><li>Pick 1-2 specialties.</li><li>Choose a realistic project type.</li><li>Build a 10-person supervisor list.</li><li>Read one thing they have worked on.</li><li>Send five specific emails.</li><li>Track every follow-up.</li><li>Ask about approvals and authorship early.</li><li>Aim for one output.</li><li>Use ResearchStack Starter.</li></ol>
+<h2 id="10-content-seeds-md-carousel-2-the-supervisor-meeting-checklist">Carousel 2: The Supervisor Meeting Checklist</h2>
+<p>Slides:</p>
+<ol><li>What project are we doing?</li><li>What is the research question?</li><li>What approval do we need?</li><li>Can I access data?</li><li>What is my role?</li><li>What is the output?</li><li>What is the timeline?</li><li>How will authorship be decided?</li><li>What is my first task?</li><li>When should I follow up?</li></ol>
+            </div>
+          </section>
+        
+  </main>
+</body>
+</html>
