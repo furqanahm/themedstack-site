@@ -659,6 +659,22 @@ input:focus, textarea:focus, select:focus {
   max-width: 620px;
   margin-top: 24px;
 }
+.lite-tally-card {
+  padding: 17px;
+  border: 1px solid rgba(67, 198, 138, 0.28);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(67, 198, 138, 0.08), transparent 80%),
+    rgba(6, 7, 8, 0.28);
+}
+.lite-tally-card strong {
+  display: block;
+  max-width: 520px;
+  margin-top: 6px;
+  color: var(--paper);
+  font-size: 14px;
+  line-height: 1.5;
+}
 .lite-capture-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
