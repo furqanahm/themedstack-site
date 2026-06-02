@@ -1,8 +1,8 @@
 import { Wordmark, Icon } from "./atoms";
-import { MEDSTACK_OS_CHECKOUT_URL } from "../config";
+import { MEDSTACK_OS_CHECKOUT_URL, MEDSTACK_OS_LITE_URL } from "../config";
 
 const LINKS = [
-  ["OS Lite", "#medstack-lite"],
+  ["OS Lite", MEDSTACK_OS_LITE_URL],
   ["Full OS", "#get-medstack-os"],
   ["ResearchStack", "#researchstack"],
   ["Why", "#why"],
@@ -36,7 +36,13 @@ export default function Nav() {
         </a>
         <nav style={{ display: "flex", alignItems: "center", gap: 28 }}>
           {LINKS.map(([label, href]) => (
-            <a key={label} href={href} style={{ fontSize: 13.5, color: "var(--paper)", opacity: 0.72 }}>
+            <a
+              key={label}
+              href={href}
+              target={href.startsWith("https://") ? "_blank" : undefined}
+              rel={href.startsWith("https://") ? "noreferrer" : undefined}
+              style={{ fontSize: 13.5, color: "var(--paper)", opacity: 0.72 }}
+            >
               {label}
             </a>
           ))}

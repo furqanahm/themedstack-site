@@ -27,7 +27,7 @@ export default function MedStackLiteLeadMagnet() {
               evidence, career stages and weekly priorities before upgrading to the full operating system.
             </p>
             <div className="lite-actions">
-              <a href={MEDSTACK_OS_LITE_URL} className="btn btn-primary">
+              <a href={MEDSTACK_OS_LITE_URL} className="btn btn-primary" target="_blank" rel="noreferrer">
                 Get MedStack OS Lite <Icon name="arrow" size={12} color="var(--graphite-0)" />
               </a>
               <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-ghost">
