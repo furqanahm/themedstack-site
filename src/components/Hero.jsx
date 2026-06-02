@@ -1,6 +1,6 @@
 import { Icon } from "./atoms";
 import ProductDemo from "./ProductDemo";
-import { MEDSTACK_OS_CHECKOUT_URL, MEDSTACK_OS_LITE_URL } from "../config";
+import { MEDSTACK_OS_CHECKOUT_URL, MEDSTACK_OS_LITE_FORM_URL } from "../config";
 
 export default function Hero() {
   return (
@@ -40,7 +40,7 @@ export default function Hero() {
             <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-primary">
               Get MedStack OS <Icon name="arrow" size={12} color="var(--graphite-0)" />
             </a>
-            <a href={MEDSTACK_OS_LITE_URL} className="btn btn-ghost">
+            <a href={MEDSTACK_OS_LITE_FORM_URL} className="btn btn-ghost" target="_blank" rel="noreferrer">
               Get OS Lite free <Icon name="arrow" size={12} />
             </a>
           </div>
