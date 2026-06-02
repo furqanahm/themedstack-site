@@ -1,5 +1,4 @@
 import { Wordmark, Icon } from "./atoms";
-import { MEDSTACK_OS_LITE_URL } from "../config";
 
 export default function Footer() {
   return (
@@ -43,7 +42,7 @@ export default function Footer() {
             {
               h: "PRODUCT",
               l: [
-                ["OS Lite free", MEDSTACK_OS_LITE_URL],
+                ["OS Lite free", "#medstack-lite"],
                 ["Full MedStack OS", "#get-medstack-os"],
                 ["What is MedStack OS", "#medstack-os"],
                 ["ResearchStack Starter", "#researchstack"],
@@ -72,13 +71,7 @@ export default function Footer() {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {col.l.map(([label, href], j) => (
-                  <a
-                    key={j}
-                    href={href}
-                    target={href.startsWith("https://") ? "_blank" : undefined}
-                    rel={href.startsWith("https://") ? "noreferrer" : undefined}
-                    style={{ fontSize: 13, color: "var(--paper)", opacity: 0.7 }}
-                  >
+                  <a key={j} href={href} style={{ fontSize: 13, color: "var(--paper)", opacity: 0.7 }}>
                     {label}
                   </a>
                 ))}
