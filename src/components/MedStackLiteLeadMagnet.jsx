@@ -29,7 +29,7 @@ export default function MedStackLiteLeadMagnet() {
             <div className="lite-capture lite-access-card">
               <div>
                 <div className="rx-label">FREE ACCESS</div>
-                <strong>Enter your details and get instant access to the Lite Notion template.</strong>
+                <strong>Open the free Lite Notion template and duplicate it into your own workspace.</strong>
               </div>
               <div className="lite-actions">
                 <a href={MEDSTACK_OS_LITE_FORM_URL} className="btn btn-primary" target="_blank" rel="noreferrer">
@@ -40,8 +40,7 @@ export default function MedStackLiteLeadMagnet() {
                 </a>
               </div>
               <p className="lite-privacy">
-                We collect your name, email, stage and main goal so we can improve MedStack and send useful medical
-                career resources. No spam.
+                No account setup needed. Use Lite as the starter layer, then upgrade when you want the full AI-powered OS.
               </p>
             </div>
           </div>

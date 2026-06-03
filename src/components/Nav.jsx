@@ -5,7 +5,7 @@ const LINKS = [
   ["OS Lite", MEDSTACK_OS_LITE_FORM_URL],
   ["Full OS", "#get-medstack-os"],
   ["ResearchStack", "#researchstack"],
-  ["Why", "#why"],
+  ["Why", "#medstack-os"],
 ];
 
 export default function Nav() {
@@ -31,7 +31,7 @@ export default function Nav() {
           height: 66,
         }}
       >
-        <a href="#" aria-label="MedStack home" style={{ color: "var(--paper)" }}>
+        <a href="/" aria-label="MedStack home" style={{ color: "var(--paper)" }}>
           <Wordmark />
         </a>
         <nav style={{ display: "flex", alignItems: "center", gap: 28 }}>

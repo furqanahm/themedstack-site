@@ -47,22 +47,22 @@ export default function Footer() {
                 ["Full MedStack OS", "#get-medstack-os"],
                 ["What is MedStack OS", "#medstack-os"],
                 ["ResearchStack Starter", "#researchstack"],
-                ["ResearchStack Academy", "#academy"],
+                ["ResearchStack Waitlist", "#waitlist"],
               ],
             },
             {
               h: "GET STARTED",
               l: [
                 ["Founding waitlist", "#waitlist"],
-                ["Why The MedStack", "#why"],
+                ["Why The MedStack", "#medstack-os"],
               ],
             },
             {
               h: "COMPANY",
               l: [
-                ["Contact", "#"],
-                ["Privacy", "#"],
-                ["Terms", "#"],
+                ["Contact", "mailto:themedstack@gmail.com"],
+                ["Privacy", "mailto:themedstack@gmail.com?subject=TheMedStack%20privacy%20request"],
+                ["Terms", "mailto:themedstack@gmail.com?subject=TheMedStack%20terms%20request"],
               ],
             },
           ].map((col, i) => (
@@ -114,12 +114,12 @@ export default function Footer() {
             </div>
             <div>
               <div className="rx-label" style={{ color: "var(--amber)", marginBottom: 6 }}>
-                DISCLAIMER · STUDENT EDUCATION ONLY
+                DISCLAIMER - STUDENT EDUCATION ONLY
               </div>
               <p style={{ margin: 0, fontSize: 13, lineHeight: 1.6, color: "var(--paper)", opacity: 0.75, maxWidth: 820 }}>
                 MedStack is an educational resource for medical and pre-medical students. It is{" "}
                 <strong>not medical advice</strong>, not a substitute for professional clinical judgement, and not
-                intended for patient care. AI outputs are unverified — always cross-reference against your
+                intended for patient care. AI outputs are unverified - always cross-reference against your
                 institution&apos;s curriculum and supervising clinicians.
               </p>
             </div>
@@ -130,10 +130,10 @@ export default function Footer() {
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <div className="mono" style={{ fontSize: 11, opacity: 0.5, letterSpacing: "0.06em" }}>
-            © 2026 MEDSTACK · AUSTRALIA
+            (c) 2026 MEDSTACK - AUSTRALIA
           </div>
           <div className="mono" style={{ fontSize: 11, opacity: 0.5, letterSpacing: "0.06em" }}>
-            v1.0 · <span style={{ color: "var(--green)" }}>● SHIPPING</span>
+            v1.0 - <span style={{ color: "var(--green)" }}>LIVE</span>
           </div>
         </div>
       </div>
