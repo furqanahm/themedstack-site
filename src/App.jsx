@@ -2,6 +2,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import MedStackLiteLeadMagnet from "./components/MedStackLiteLeadMagnet";
 import MedStackOSPurchase from "./components/MedStackOSPurchase";
+import MedStackTestimonials from "./components/MedStackTestimonials";
 import MedStackAICommandLayer from "./components/MedStackAICommandLayer";
 import MedStackOfferStack from "./components/MedStackOfferStack";
 import WhatIsMedStackOS from "./components/WhatIsMedStackOS";
@@ -22,6 +23,7 @@ export default function App() {
       <Hero />
       <MedStackLiteLeadMagnet />
       <MedStackOSPurchase />
+      <MedStackTestimonials />
       <MedStackAICommandLayer />
       <MedStackOfferStack />
       <WhatIsMedStackOS />

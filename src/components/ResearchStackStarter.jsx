@@ -120,7 +120,7 @@ function PriceCard() {
         <span className="mono" style={{ fontSize: 14, color: "var(--ink-dim)" }}>{PRICING.currency}</span>
       </div>
       <div style={{ marginTop: 10, fontSize: 13.5, color: "var(--ink-dim)" }}>
-        Regular price: {PRICING.regular} {PRICING.currency}
+        Regular price: <span className="research-regular-price">{PRICING.regular}</span> {PRICING.currency}
       </div>
       <div className="rx-label" style={{ marginTop: 4 }}>{PRICING.note}</div>
       <a href={href} className="btn btn-green" style={{ marginTop: 18, width: "100%", justifyContent: "center" }}>

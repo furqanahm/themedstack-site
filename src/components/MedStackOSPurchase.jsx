@@ -4,20 +4,39 @@ import { MEDSTACK_OS_CHECKOUT_URL } from "../config";
 const INCLUDES = [
   "Visual command dashboard",
   "AI setup protocol",
-  "MedStack Copilot prompt layer",
+  "50+ MedStack Copilot prompts",
   "Daily task tracker",
   "Career roadmap",
   "Research and publication trackers",
+  "Training-program evidence map",
   "Medical CV evidence builder",
   "Rotation and application systems",
   "Australian internship and pathway hubs",
   "Manuscript pre-submission reviewer",
+  "Future OS updates included",
 ];
 
 const FOUNDING = [
-  "Live AI setup workshop on 1 July 2026",
-  "7-day setup support by email",
-  "First 25 buyers get a personal OS setup audit",
+  {
+    label: "BONUS 01",
+    title: "Live AI setup workshop",
+    body: "Join the 1 July 2026 session on connecting AI into your duplicated MedStack OS.",
+  },
+  {
+    label: "BONUS 02",
+    title: "7-day setup support",
+    body: "Email support while you get the workspace, prompts and career evidence system running.",
+  },
+  {
+    label: "BONUS 03",
+    title: "Personal OS setup audit",
+    body: "First 25 buyers can request a simple audit so their OS is pointed at the right pathway goals.",
+  },
+  {
+    label: "BONUS 04",
+    title: "Future OS updates",
+    body: "Get future MedStack OS template updates while founding access is open, including new prompts and workflow upgrades.",
+  },
 ];
 
 const PREVIEWS = [
@@ -54,31 +73,40 @@ export default function MedStackOSPurchase() {
             </h2>
 
             <p className="os-purchase-copy">
-              A premium Notion command centre for medical students to organise rotations, research, CV evidence,
-              applications, pathway planning and AI-assisted weekly execution without rebuilding the same scattered
-              system every term.
+              A premium command centre for Australian medical students and junior doctors who want to organise the
+              evidence that matters for competitive pathways: research, CV proof, rotations, applications and weekly
+              execution.
             </p>
 
             <div className="os-price-card ticked">
               <div>
                 <div className="rx-label">FOUNDING PRICE</div>
                 <div className="os-price">
-                  <span>A$79</span>
+                  <span>A$99</span>
                   <small>one-time access</small>
                 </div>
-                <div className="os-founding-note">Includes founding cohort bonuses while open.</div>
+                <div className="os-founding-note">Includes bonus stack while founding access is open.</div>
               </div>
               <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-green">
                 Get MedStack OS <Icon name="arrow" size={12} color="var(--graphite-0)" />
               </a>
             </div>
 
-            <div className="os-founding-bonuses" aria-label="Founding cohort bonuses">
+            <div className="os-bonus-kicker">
+              <span>FOUNDING BUYER BONUSES</span>
+              <strong>Included today</strong>
+            </div>
+
+            <div className="os-founding-bonuses" aria-label="Founding buyer bonuses">
               {FOUNDING.map((item) => (
-                <div key={item}>
+                <article key={item.title}>
                   <Icon name="spark" size={12} color="var(--green)" />
-                  <span>{item}</span>
-                </div>
+                  <div>
+                    <small>{item.label}</small>
+                    <strong>{item.title}</strong>
+                    <span>{item.body}</span>
+                  </div>
+                </article>
               ))}
             </div>
 

@@ -1,29 +1,6 @@
 import { EcgLine, Icon } from "./atoms";
 import { MEDSTACK_OS_CHECKOUT_URL, MEDSTACK_OS_LITE_FORM_URL } from "../config";
 
-const WORKFLOWS = [
-  {
-    label: "Daily update",
-    title: "Messy notes -> tomorrow's plan",
-    body: "Paste what you did today, what feels urgent, and what you are avoiding. The prompt returns a clean update pack for tasks, CV evidence, research and applications.",
-  },
-  {
-    label: "CV evidence",
-    title: "Experience -> selector-ready proof",
-    body: "Turn bedside teaching, society roles, audits, leadership and research into CV evidence lines with impact, proof needed and next action.",
-  },
-  {
-    label: "Research",
-    title: "Idea -> supervisor-ready next move",
-    body: "Clarify project type, likely output, supervisor email, first meeting agenda, data needs and the smallest publishable next step.",
-  },
-  {
-    label: "Pathway",
-    title: "Goal -> Australian pathway map",
-    body: "Use the internship and specialty hubs to convert state requirements, college signals and application deadlines into a weekly plan.",
-  },
-];
-
 const UPDATE_PACK = [
   ["TASK", "Book one protected 30 min deep-work block for CV clean-up."],
   ["CV", "Add bedside teaching session as Teaching evidence; request proof."],
@@ -31,15 +8,11 @@ const UPDATE_PACK = [
   ["APP", "Check state internship dates and list required documents."],
 ];
 
-const CONTEXT_ITEMS = [
-  "Research projects",
-  "CV evidence",
-  "Rotation goals",
-  "Internship dates",
-  "Supervisor follow-ups",
-  "Application criteria",
-  "Deep-work blocks",
-  "Teaching proof",
+const AI_WINS = [
+  "50+ prompts across CV, research, applications and weekly execution",
+  "Turn weekly chaos into specific next actions",
+  "Translate experiences into CV evidence",
+  "Keep research and applications moving",
 ];
 
 export default function MedStackAICommandLayer() {
@@ -64,20 +37,21 @@ export default function MedStackAICommandLayer() {
               </span>
 
               <h2 className="serif ai-os-title">
-                A medical career OS with an <em style={{ color: "var(--green)" }}>AI operating layer.</em>
+                Turn career chaos into <em style={{ color: "var(--green)" }}>training-program evidence.</em>
               </h2>
 
               <p className="ai-os-copy">
-                Most templates die because they still make you decide what to do next. The MedStack OS gives students the
-                workspace, prompt vault and setup protocol to turn messy career updates into clean Notion moves.
+                Use the 50+ MedStack Copilot prompt vault to turn messy updates into cleaner tasks, CV evidence,
+                research moves and application prep. Simple enough to use weekly, structured enough to matter.
               </p>
 
-              <div className="context-marquee ai-context-marquee" aria-label="MedStack context layer">
-                <div>
-                  {[...CONTEXT_ITEMS, ...CONTEXT_ITEMS].map((item, index) => (
-                    <span key={`${item}-${index}`}>{item}</span>
-                  ))}
-                </div>
+              <div className="ai-win-list">
+                {AI_WINS.map((win) => (
+                  <span key={win}>
+                    <Icon name="check" size={12} color="var(--green)" strokeWidth={2.2} />
+                    {win}
+                  </span>
+                ))}
               </div>
 
               <div className="ai-os-actions">
@@ -113,16 +87,6 @@ export default function MedStackAICommandLayer() {
                 ))}
               </div>
             </div>
-          </div>
-
-          <div className="ai-workflow-grid">
-            {WORKFLOWS.map((workflow) => (
-              <article key={workflow.title} className="ai-workflow-card">
-                <div className="rx-label">{workflow.label}</div>
-                <h3>{workflow.title}</h3>
-                <p>{workflow.body}</p>
-              </article>
-            ))}
           </div>
 
           <div className="ai-mechanism-strip">

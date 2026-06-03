@@ -26,10 +26,10 @@ export default function MedStackLiteLeadMagnet() {
               A lightweight Notion dashboard for medical students who want to start organising research ideas, CV
               evidence, career stages and weekly priorities before upgrading to the full operating system.
             </p>
-            <div className="lite-capture lite-tally-card">
+            <div className="lite-capture lite-access-card">
               <div>
                 <div className="rx-label">FREE ACCESS</div>
-                <strong>Enter your details, then Tally will send you straight to the Lite Notion template.</strong>
+                <strong>Enter your details and get instant access to the Lite Notion template.</strong>
               </div>
               <div className="lite-actions">
                 <a href={MEDSTACK_OS_LITE_FORM_URL} className="btn btn-primary" target="_blank" rel="noreferrer">

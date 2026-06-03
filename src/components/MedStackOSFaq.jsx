@@ -5,7 +5,7 @@ const FAQS = [
   },
   {
     q: "Is this just a Notion template?",
-    a: "No. The workspace is the base layer. The paid version also includes the AI setup protocol, prompt vault, daily tracker, CV evidence system, research engine, application tracker and Australian pathway hubs.",
+    a: "No. The workspace is the base layer. The paid version also includes the AI setup protocol, 50+ prompt vault, daily tracker, CV evidence system, research engine, application tracker and Australian pathway hubs.",
   },
   {
     q: "Do I need Notion AI?",
@@ -20,8 +20,12 @@ const FAQS = [
     a: "You receive the paid Notion template link and duplicate it into your own workspace. Once duplicated, your copy is yours to edit and customise.",
   },
   {
-    q: "What are the founding cohort bonuses?",
-    a: "Founding buyers get access to the 1 July 2026 live AI setup workshop, 7-day setup support by email, future v1 updates while founding access is open, and the first 25 buyers can request a simple personal OS setup audit.",
+    q: "What are the founding buyer bonuses?",
+    a: "Founding buyers get the 1 July 2026 live AI setup workshop, 7-day setup support by email, future MedStack OS updates while founding access is open, and the first 25 buyers can request a simple personal OS setup audit.",
+  },
+  {
+    q: "Will I get future template updates?",
+    a: "Yes. Future MedStack OS updates released during founding access are included, including new prompt vault additions, workflow upgrades and template refinements.",
   },
   {
     q: "Is the setup audit a medical career consulting call?",
@@ -37,7 +41,7 @@ const FAQS = [
   },
   {
     q: "How is the free Lite version different?",
-    a: "Lite gives the basic dashboard and starter workflow. The full OS adds the AI layer, dedicated engines, deeper trackers, prompt vault, application systems and Australian pathway modules.",
+    a: "Lite gives the basic dashboard and starter workflow. The full OS adds the AI layer, dedicated engines, deeper trackers, 50+ prompt vault, application systems and Australian pathway modules.",
   },
 ];
 

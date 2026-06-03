@@ -1,83 +1,47 @@
 import { EcgLine, Icon } from "./atoms";
-import { MEDSTACK_OS_CHECKOUT_URL, MEDSTACK_OS_LITE_FORM_URL } from "../config";
+import { MEDSTACK_OS_CHECKOUT_URL } from "../config";
 
-const STACK = [
+const INCLUDED = [
   {
-    eyebrow: "CORE OPERATING SYSTEM",
+    title: "The Core Career OS",
     value: "A$297 value",
-    title: "MedStack OS Command Centre",
     items: [
-      "Visual medical career dashboard",
-      "Research, CV, rotation and application command views",
+      "Command centre dashboard",
       "Career roadmap and current-stage switcher",
-      "Deep-work desk with 30-minute execution rhythm",
+      "Research, CV, rotation and application trackers",
+      "Deep-work desk and weekly reset system",
+      "Future OS template updates included",
     ],
   },
   {
-    eyebrow: "AI CONTEXT LAYER",
+    title: "AI Setup + Prompt Engine",
     value: "A$197 value",
-    title: "MedStack Copilot System",
     items: [
-      "AI setup protocol for your duplicated workspace",
+      "MedStack Copilot setup protocol",
+      "50+ prompt vault for CV, research, applications and weekly execution",
       "Daily update-pack prompt system",
-      "Prompt vault for CV, research and applications",
-      "Notion AI / Claude / ChatGPT workflow guidance",
+      "Claude, Codex, ChatGPT and Notion connection guidance",
     ],
   },
   {
-    eyebrow: "AUSTRALIAN PATHWAY RESOURCES",
-    value: "A$149 value",
-    title: "Internship + Specialty Navigation",
+    title: "Australian Pathway Layer",
+    value: "A$197 value",
     items: [
-      "Australian internship and pathway hub",
-      "State application links and decision prompts",
-      "Specialty pathway atlas structure",
+      "Internship and application hub",
+      "Specialty pathway atlas",
       "Selection-criteria thinking built into the OS",
+      "Australian-first medical career structure",
     ],
   },
   {
-    eyebrow: "CAREER BUILDING TEMPLATES",
-    value: "A$129 value",
-    title: "CV, Research + Application Engines",
+    title: "Founding Buyer Bonuses",
+    value: "A$199 value",
     items: [
-      "Medical CV evidence builder",
-      "Supervisor outreach and follow-up templates",
-      "Manuscript pre-submission reviewer workflow",
-      "Application tracker and document gap map",
+      "BONUS 01: live AI setup workshop on 1 July 2026",
+      "BONUS 02: first 25 buyers get a personal OS setup audit",
+      "BONUS 03: Claude, Codex and Notion workflow setup guidance",
+      "BONUS 04: future OS updates, new prompts and workflow upgrades while founding access is open",
     ],
-  },
-];
-
-const BONUSES = [
-  "Live AI setup workshop on 1 July 2026",
-  "7-day founding buyer email support",
-  "First 25 buyers: personal OS setup audit",
-  "Weekly execution tracker and setup guide",
-  "Future v1 updates while founding access is open",
-  "ResearchStack Starter founder discount when it opens",
-];
-
-const SIGNALS = [
-  "Fast first win: duplicate, set your stage, add one project, run one prompt.",
-  "Medical-specific: CV, research, rotations and applications in one system.",
-  "Australia-aware: internship and pathway resources built around local medical career decisions.",
-];
-
-const COHORT = [
-  {
-    label: "LIVE WORKSHOP",
-    title: "AI setup session",
-    body: "A live walkthrough on 1 July 2026 showing how to duplicate the OS, connect your AI workflow, and run the daily update system.",
-  },
-  {
-    label: "SUPPORT",
-    title: "7-day founding help",
-    body: "Email support for setup questions, broken access, and getting your first CV, research and application items into the system.",
-  },
-  {
-    label: "CAPPED BONUS",
-    title: "First 25: setup audit",
-    body: "Send your current stage, goals and workspace screenshot. Get a simple setup note showing what to fix first.",
   },
 ];
 
@@ -85,48 +49,35 @@ export default function MedStackOfferStack() {
   return (
     <section id="offer-stack" className="offer-stack-section">
       <div className="container">
-        <div className="offer-stack-shell ticked">
-          <div className="offer-ecg" aria-hidden>
-            <EcgLine height={90} speed={9} />
+        <div className="simple-offer-shell ticked">
+          <div className="simple-offer-ecg" aria-hidden>
+            <EcgLine height={92} speed={8} />
           </div>
 
-          <div className="offer-stack-header">
-            <div>
-              <div className="section-kicker">
-                <span className="idx">03 - EVERYTHING INCLUDED</span>
-                <span className="rule" />
-              </div>
-              <span className="tag">
-                <span className="dot" />
-                ONE SIMPLE PACKAGE
-              </span>
-              <h2 className="serif">
-                The full medical career OS, not a scattered bundle of pages.
-              </h2>
+          <div className="simple-offer-header">
+            <div className="section-kicker">
+              <span className="idx">03 - EVERYTHING INCLUDED</span>
+              <span className="rule" />
             </div>
 
-            <div className="offer-total-card">
-              <div className="rx-label">STACKED VALUE</div>
-              <div className="offer-total-value">A$773+</div>
-              <p>Founding access today: <strong>A$79</strong> one-time payment.</p>
-              <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-green">
-                Get lifetime access <Icon name="arrow" size={12} color="var(--graphite-0)" />
-              </a>
-            </div>
+            <h2 className="serif">One simple package. No recurring fees.</h2>
+            <p>
+              The MedStack OS gives Australian medical students and junior doctors one place to build the evidence,
+              research output and application structure needed for competitive training pathways.
+            </p>
           </div>
 
-          <div className="offer-stack-grid">
-            {STACK.map((block) => (
-              <article key={block.title} className="offer-stack-card">
-                <div className="offer-card-top">
-                  <span>{block.eyebrow}</span>
-                  <em>{block.value}</em>
+          <div className="simple-included-grid">
+            {INCLUDED.map((block) => (
+              <article key={block.title} className="simple-included-card">
+                <div className="simple-included-top">
+                  <h3>{block.title}</h3>
+                  <span>{block.value}</span>
                 </div>
-                <h3>{block.title}</h3>
                 <ul>
                   {block.items.map((item) => (
                     <li key={item}>
-                      <Icon name="check" size={12} color="var(--green)" strokeWidth={2.2} />
+                      <Icon name="check" size={13} color="var(--green)" strokeWidth={2.2} />
                       {item}
                     </li>
                   ))}
@@ -135,68 +86,24 @@ export default function MedStackOfferStack() {
             ))}
           </div>
 
-          <div className="bonus-strip">
+          <div className="simple-price-panel">
             <div>
-              <div className="rx-label">FOUNDING BONUSES</div>
-              <strong>Designed to make the first week feel obvious, not overwhelming.</strong>
+              <div className="rx-label">NORMALLY INCLUDED VALUE</div>
+              <strong className="was-price">A$890</strong>
+              <p className="price-microcopy">The full OS, AI setup layer, pathway tools and founding bonuses.</p>
             </div>
-            <div className="bonus-list">
-              {BONUSES.map((bonus) => (
-                <span key={bonus}>{bonus}</span>
-              ))}
-            </div>
-          </div>
 
-          <div className="cohort-bonus-grid">
-            {COHORT.map((item) => (
-              <article key={item.title}>
-                <div className="rx-label">{item.label}</div>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </article>
-            ))}
-          </div>
+            <div className="simple-price-divider" />
 
-          <div className="offer-signal-row" aria-label="Why the offer is different">
-            {SIGNALS.map((signal) => (
-              <div key={signal}>
-                <Icon name="spark" size={13} color="var(--green)" />
-                <span>{signal}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="pricing-step-row">
-            <article>
-              <span>v1.0</span>
-              <strong>Current founding access</strong>
-              <em>A$79</em>
-            </article>
-            <article>
-              <span>v1.1</span>
-              <strong>After cohort bonuses close</strong>
-              <em>A$99-A$149</em>
-            </article>
-            <article>
-              <span>v1.2</span>
-              <strong>ResearchStack bundle</strong>
-              <em>A$299+</em>
-            </article>
-          </div>
-
-          <div className="offer-final-cta">
-            <p>
-              Start with Lite if you want to test the workflow. Buy the full OS if you want the whole command system,
-              AI layer and Australian career structure.
-            </p>
             <div>
-              <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-primary">
-                Get MedStack OS
-              </a>
-              <a href={MEDSTACK_OS_LITE_FORM_URL} className="btn btn-ghost" target="_blank" rel="noreferrer">
-                Try Lite free
-              </a>
+              <div className="rx-label">TODAY'S FOUNDING PRICE</div>
+              <strong>A$99</strong>
+              <p>One-time payment. Instant access. Future OS updates included while founding access is open.</p>
             </div>
+
+            <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-green">
+              Get MedStack OS <Icon name="arrow" size={12} color="var(--graphite-0)" />
+            </a>
           </div>
         </div>
       </div>

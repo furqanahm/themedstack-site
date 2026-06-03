@@ -1,12 +1,8 @@
-/** ConvertKit form for the founding waitlist (MedStack OS + ResearchStack). */
-export const CONVERTKIT_FORM_ID = "9373212";
-export const CONVERTKIT_ACTION = `https://app.kit.com/forms/${CONVERTKIT_FORM_ID}/subscriptions`;
-
 export const MEDSTACK_OS_CHECKOUT_URL =
-  "https://buy.stripe.com/eVq8wR5Lpcns8Eb5TU93y00";
+  "https://buy.stripe.com/fZu00l6Ptbjo3jReqq93y01";
 
 export const MEDSTACK_OS_ACCESS_URL =
-  "https://iodized-pruner-457.notion.site/00-START-HERE-The-MedStack-OS-Dashboard-67f6a972775082f6939a81af3d623480?source=copy_link";
+  "https://gilded-newsprint-f85.notion.site/00-START-HERE-The-MedStack-OS-Dashboard-37154fbb005b81c2812add1d4db4ec30?source=copy_link";
 
 export const MEDSTACK_OS_LITE_URL =
   "https://blushing-virgo-5ac.notion.site/MedStack-OS-Lite-Free-Medical-Career-Dashboard-018fc7fa305082959e14010ec7486d8b";

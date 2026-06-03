@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { GridBg, Icon } from "./atoms";
-import { CONVERTKIT_ACTION } from "../config";
 
 const BENEFITS = [
-  { t: "Early access to ResearchStack Academy", d: "Be first to know when the full research program opens." },
-  { t: "Founding member pricing", d: "Lock in the earliest price before public launch." },
-  { t: "ResearchStack build updates", d: "See the roadmap, templates and workflows as they are built." },
-  { t: "Build log — no spam", d: "Behind-the-scenes updates as we build." },
+  { t: "First look at ResearchStack Starter", d: "Get the release notes before it opens publicly." },
+  { t: "Founding member pricing", d: "Lock in the earliest research-product price before launch." },
+  { t: "Build updates", d: "See the templates, workflows and research systems as they come together." },
+  { t: "No spam", d: "Only product updates, useful research resources and launch timing." },
 ];
+
+const encode = (data) => new URLSearchParams(data).toString();
 
 export default function WaitlistCta() {
   const [email, setEmail] = useState("");
@@ -18,13 +19,22 @@ export default function WaitlistCta() {
     e.preventDefault();
     if (!email.includes("@")) return;
     setSubmitting(true);
+
     try {
-      const fd = new FormData();
-      fd.append("email_address", email);
-      await fetch(CONVERTKIT_ACTION, { method: "POST", body: fd, mode: "no-cors" });
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "researchstack-waitlist",
+          "bot-field": "",
+          email,
+          source: "website-waitlist",
+        }),
+      });
     } catch {
-      /* no-cors — treat as success */
+      /* Keep the page calm; Netlify records submissions after deploy. */
     }
+
     setSubmitting(false);
     setDone(true);
   };
@@ -33,7 +43,7 @@ export default function WaitlistCta() {
     <section id="waitlist" style={{ position: "relative" }}>
       <div className="container">
         <div className="section-kicker">
-          <span className="idx">07 - RESEARCHSTACK ACADEMY WAITLIST</span>
+          <span className="idx">07 - RESEARCHSTACK WAITLIST</span>
           <span className="rule" />
         </div>
 
@@ -59,24 +69,37 @@ export default function WaitlistCta() {
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
                 <span className="tag tag-amber">
                   <span className="dot" />
-                  FOUNDING ACCESS · OPENING SOON
+                  RESEARCHSTACK STARTER
                 </span>
-                <span className="rx-label">LIMITED SEATS</span>
+                <span className="rx-label">LIMITED FOUNDING PRICE</span>
               </div>
+
               <h2 className="serif" style={{ fontSize: "var(--fs-h2)", lineHeight: 1.0, letterSpacing: "-0.018em", margin: 0, color: "var(--paper)" }}>
-                Join the waitlist for{" "}
-                <em style={{ color: "var(--blue)" }}>ResearchStack Academy.</em>
+                Join the early list for{" "}
+                <em style={{ color: "var(--blue)" }}>ResearchStack.</em>
               </h2>
+
               <p style={{ marginTop: 20, fontSize: 16, lineHeight: 1.6, color: "var(--ink-dim)", maxWidth: 520 }}>
-                A deeper research training program for ambitious medical students and junior doctors who want to learn
-                how to find projects, work with supervisors, write papers, understand systematic reviews and
-                meta-analyses, and build research output that strengthens their CV.
+                We are building the research product separately instead of rushing it. Join the early list and you will
+                be first to see the supervisor scripts, project-type guides, manuscript systems and AI research
+                workflows before the public launch.
               </p>
 
-              <form onSubmit={onSubmit} style={{ marginTop: 28 }}>
+              <form
+                name="researchstack-waitlist"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={onSubmit}
+                style={{ marginTop: 28 }}
+              >
+                <input type="hidden" name="form-name" value="researchstack-waitlist" />
+                <input type="hidden" name="bot-field" value="" />
+                <input type="hidden" name="source" value="website-waitlist" />
                 {!done ? (
                   <div style={{ display: "flex", gap: 10, flexWrap: "wrap", maxWidth: 480 }}>
                     <input
+                      name="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@medschool.edu.au"
@@ -85,7 +108,7 @@ export default function WaitlistCta() {
                       style={{ flex: "1 1 240px" }}
                     />
                     <button className="btn btn-primary" type="submit" disabled={submitting}>
-                      {submitting ? "Joining…" : "Join the academy waitlist"}
+                      {submitting ? "Joining..." : "Join the ResearchStack list"}
                       {!submitting && <Icon name="arrow" size={12} color="var(--graphite-0)" />}
                     </button>
                   </div>
@@ -104,8 +127,8 @@ export default function WaitlistCta() {
                   >
                     <Icon name="check" size={16} color="var(--blue)" strokeWidth={2} />
                     <div>
-                      <div style={{ fontSize: 14, color: "var(--paper)" }}>You&apos;re on the academy waitlist.</div>
-                      <div className="mono" style={{ fontSize: 11, opacity: 0.5 }}>WE&apos;LL EMAIL WHEN RESEARCHSTACK ACADEMY OPENS</div>
+                      <div style={{ fontSize: 14, color: "var(--paper)" }}>You&apos;re on the ResearchStack list.</div>
+                      <div className="mono" style={{ fontSize: 11, opacity: 0.5 }}>WE&apos;LL EMAIL WHEN THE RESEARCH PRODUCT OPENS</div>
                     </div>
                   </div>
                 )}

@@ -29,10 +29,9 @@ export default function Hero() {
               color: "var(--ink-dim)",
             }}
           >
-            MedStack OS and ResearchStack help ambitious medical students and junior doctors organise their career,
-            build research output, and create a{" "}
-            <strong style={{ color: "var(--paper)", fontWeight: 600 }}>CV that stands out</strong> for competitive
-            medical pathways.
+            MedStack OS helps Australian medical students and junior doctors organise the research, CV evidence,
+            applications and pathway decisions they need for{" "}
+            <strong style={{ color: "var(--paper)", fontWeight: 600 }}>competitive training programs</strong>.
           </p>
 
           <div style={{ display: "flex", gap: 12, marginTop: 30, justifyContent: "center", flexWrap: "wrap" }}>
@@ -53,8 +52,8 @@ export default function Hero() {
           </div>
 
           <div className="hero-signal-strip" aria-label="MedStack OS product signals">
-            <span>AI setup protocol</span>
-            <span>Daily execution tracker</span>
+            <span>Training-program evidence</span>
+            <span>Research output</span>
             <span>Australian pathway layer</span>
           </div>
         </div>
