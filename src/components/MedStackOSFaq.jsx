@@ -38,7 +38,7 @@ export default function MedStackOSFaq() {
     <section id="faq" className="faq-section">
       <div className="container">
         <div className="section-kicker">
-          <span className="idx">09 - FAQ</span>
+          <span className="idx">06 - FAQ</span>
           <span className="rule" />
         </div>
 

@@ -31,6 +31,17 @@ const UPDATE_PACK = [
   ["APP", "Check state internship dates and list required documents."],
 ];
 
+const CONTEXT_ITEMS = [
+  "Research projects",
+  "CV evidence",
+  "Rotation goals",
+  "Internship dates",
+  "Supervisor follow-ups",
+  "Application criteria",
+  "Deep-work blocks",
+  "Teaching proof",
+];
+
 export default function MedStackAICommandLayer() {
   return (
     <section id="ai-command-layer" className="ai-os-section">
@@ -41,7 +52,7 @@ export default function MedStackAICommandLayer() {
           </div>
 
           <div className="section-kicker">
-            <span className="idx">02 - AI COMMAND LAYER</span>
+            <span className="idx">02 - AI COMMAND SYSTEM</span>
             <span className="rule" />
           </div>
 
@@ -57,10 +68,17 @@ export default function MedStackAICommandLayer() {
               </h2>
 
               <p className="ai-os-copy">
-                Most templates die because they still make you decide what to do next. The MedStack OS gives students
-                the workspace, the prompt vault, and the setup protocol to turn messy career updates into clean Notion
-                moves.
+                Most templates die because they still make you decide what to do next. The MedStack OS gives students the
+                workspace, prompt vault and setup protocol to turn messy career updates into clean Notion moves.
               </p>
+
+              <div className="context-marquee ai-context-marquee" aria-label="MedStack context layer">
+                <div>
+                  {[...CONTEXT_ITEMS, ...CONTEXT_ITEMS].map((item, index) => (
+                    <span key={`${item}-${index}`}>{item}</span>
+                  ))}
+                </div>
+              </div>
 
               <div className="ai-os-actions">
                 <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-green">
@@ -105,6 +123,25 @@ export default function MedStackAICommandLayer() {
                 <p>{workflow.body}</p>
               </article>
             ))}
+          </div>
+
+          <div className="ai-mechanism-strip">
+            <div>
+              <span>1</span>
+              Dump the chaos
+            </div>
+            <div>
+              <span>2</span>
+              Let AI structure it
+            </div>
+            <div>
+              <span>3</span>
+              Update the OS
+            </div>
+            <div>
+              <span>4</span>
+              Execute this week
+            </div>
           </div>
         </div>
       </div>

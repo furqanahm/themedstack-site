@@ -56,6 +56,12 @@ const BONUSES = [
   "Future v1 updates while founding access is open",
 ];
 
+const SIGNALS = [
+  "Fast first win: duplicate, set your stage, add one project, run one prompt.",
+  "Medical-specific: CV, research, rotations and applications in one system.",
+  "Australia-aware: internship and pathway resources built around local medical career decisions.",
+];
+
 export default function MedStackOfferStack() {
   return (
     <section id="offer-stack" className="offer-stack-section">
@@ -68,7 +74,7 @@ export default function MedStackOfferStack() {
           <div className="offer-stack-header">
             <div>
               <div className="section-kicker">
-                <span className="idx">04 - EVERYTHING INCLUDED</span>
+                <span className="idx">03 - EVERYTHING INCLUDED</span>
                 <span className="rule" />
               </div>
               <span className="tag">
@@ -120,6 +126,15 @@ export default function MedStackOfferStack() {
                 <span key={bonus}>{bonus}</span>
               ))}
             </div>
+          </div>
+
+          <div className="offer-signal-row" aria-label="Why the offer is different">
+            {SIGNALS.map((signal) => (
+              <div key={signal}>
+                <Icon name="spark" size={13} color="var(--green)" />
+                <span>{signal}</span>
+              </div>
+            ))}
           </div>
 
           <div className="pricing-step-row">

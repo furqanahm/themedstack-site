@@ -18,7 +18,7 @@ export default function WhatIsMedStackOS() {
     <section id="medstack-os" className="sec-light">
       <div className="container">
         <div className="section-kicker">
-          <span className="idx">05 - MEDSTACK OS</span>
+          <span className="idx">04 - MEDSTACK OS</span>
           <span className="rule" />
         </div>
 
