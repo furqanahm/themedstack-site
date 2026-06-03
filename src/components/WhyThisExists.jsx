@@ -19,7 +19,7 @@ export default function WhyThisExists() {
     <section id="why" className="sec-light">
       <div className="container">
         <div className="section-kicker">
-          <span className="idx">06 - WHY THIS EXISTS</span>
+          <span className="idx">08 - WHY THIS EXISTS</span>
           <span className="rule" />
         </div>
 

@@ -38,7 +38,7 @@ export default function MedStackOSProof() {
     <section id="proof" className="proof-section">
       <div className="container">
         <div className="section-kicker">
-          <span className="idx">04 - WHY THIS CAN WIN</span>
+          <span className="idx">06 - WHY THIS CAN WIN</span>
           <span className="rule" />
         </div>
 

@@ -135,7 +135,7 @@ export default function ResearchStackStarter() {
     <section id="researchstack">
       <div className="container">
         <div className="section-kicker">
-          <span className="idx">05 - RESEARCHSTACK STARTER SYSTEM</span>
+          <span className="idx">07 - RESEARCHSTACK STARTER SYSTEM</span>
           <span className="rule" />
         </div>
 
