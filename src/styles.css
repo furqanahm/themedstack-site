@@ -806,6 +806,34 @@ input:focus, textarea:focus, select:focus {
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+.os-founding-note {
+  margin-top: 7px;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.os-founding-bonuses {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+.os-founding-bonuses div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 12px;
+  border: 1px solid rgba(67, 198, 138, 0.18);
+  border-radius: 10px;
+  background: rgba(67, 198, 138, 0.045);
+  color: var(--ink-dim);
+  font-size: 13px;
+}
+.os-founding-bonuses svg {
+  flex: none;
+}
 .os-includes {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1983,6 +2011,32 @@ input:focus, textarea:focus, select:focus {
   background: rgba(6, 7, 8, 0.26);
   font-size: 12.5px;
 }
+.cohort-bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+.cohort-bonus-grid article {
+  padding: 18px;
+  border: 1px solid rgba(67, 198, 138, 0.2);
+  border-radius: 16px;
+  background:
+    radial-gradient(240px 120px at 82% 0%, rgba(67, 198, 138, 0.12), transparent 70%),
+    rgba(6, 7, 8, 0.32);
+}
+.cohort-bonus-grid h3 {
+  margin: 9px 0 0;
+  color: var(--paper);
+  font-size: 18px;
+  letter-spacing: -0.012em;
+}
+.cohort-bonus-grid p {
+  margin: 7px 0 0;
+  color: var(--ink-dim);
+  font-size: 12.8px;
+  line-height: 1.55;
+}
 .offer-signal-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2075,6 +2129,7 @@ input:focus, textarea:focus, select:focus {
 @media (max-width: 860px) {
   .offer-stack-header,
   .bonus-strip,
+  .cohort-bonus-grid,
   .pricing-step-row,
   .offer-signal-row,
   .ai-mechanism-strip {

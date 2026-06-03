@@ -14,6 +14,12 @@ const INCLUDES = [
   "Manuscript pre-submission reviewer",
 ];
 
+const FOUNDING = [
+  "Live AI setup workshop on 1 July 2026",
+  "7-day setup support by email",
+  "First 25 buyers get a personal OS setup audit",
+];
+
 const PREVIEWS = [
   {
     src: "/images/medstack-dashboard-preview.png",
@@ -60,10 +66,20 @@ export default function MedStackOSPurchase() {
                   <span>A$79</span>
                   <small>one-time access</small>
                 </div>
+                <div className="os-founding-note">Includes founding cohort bonuses while open.</div>
               </div>
               <a href={MEDSTACK_OS_CHECKOUT_URL} className="btn btn-green">
                 Get MedStack OS <Icon name="arrow" size={12} color="var(--graphite-0)" />
               </a>
+            </div>
+
+            <div className="os-founding-bonuses" aria-label="Founding cohort bonuses">
+              {FOUNDING.map((item) => (
+                <div key={item}>
+                  <Icon name="spark" size={12} color="var(--green)" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
 
             <div className="os-includes">

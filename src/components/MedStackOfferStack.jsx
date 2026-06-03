@@ -49,17 +49,36 @@ const STACK = [
 ];
 
 const BONUSES = [
-  "MedStack OS Lite free dashboard",
-  "First 30-minute setup guide",
-  "Weekly execution tracker",
-  "Templates and scripts vault",
+  "Live AI setup workshop on 1 July 2026",
+  "7-day founding buyer email support",
+  "First 25 buyers: personal OS setup audit",
+  "Weekly execution tracker and setup guide",
   "Future v1 updates while founding access is open",
+  "ResearchStack Starter founder discount when it opens",
 ];
 
 const SIGNALS = [
   "Fast first win: duplicate, set your stage, add one project, run one prompt.",
   "Medical-specific: CV, research, rotations and applications in one system.",
   "Australia-aware: internship and pathway resources built around local medical career decisions.",
+];
+
+const COHORT = [
+  {
+    label: "LIVE WORKSHOP",
+    title: "AI setup session",
+    body: "A live walkthrough on 1 July 2026 showing how to duplicate the OS, connect your AI workflow, and run the daily update system.",
+  },
+  {
+    label: "SUPPORT",
+    title: "7-day founding help",
+    body: "Email support for setup questions, broken access, and getting your first CV, research and application items into the system.",
+  },
+  {
+    label: "CAPPED BONUS",
+    title: "First 25: setup audit",
+    body: "Send your current stage, goals and workspace screenshot. Get a simple setup note showing what to fix first.",
+  },
 ];
 
 export default function MedStackOfferStack() {
@@ -128,6 +147,16 @@ export default function MedStackOfferStack() {
             </div>
           </div>
 
+          <div className="cohort-bonus-grid">
+            {COHORT.map((item) => (
+              <article key={item.title}>
+                <div className="rx-label">{item.label}</div>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+
           <div className="offer-signal-row" aria-label="Why the offer is different">
             {SIGNALS.map((signal) => (
               <div key={signal}>
@@ -145,13 +174,13 @@ export default function MedStackOfferStack() {
             </article>
             <article>
               <span>v1.1</span>
-              <strong>AI workflow expansion</strong>
-              <em>Price increases</em>
+              <strong>After cohort bonuses close</strong>
+              <em>A$99-A$149</em>
             </article>
             <article>
               <span>v1.2</span>
-              <strong>ResearchStack bridge</strong>
-              <em>Bundle tier</em>
+              <strong>ResearchStack bundle</strong>
+              <em>A$299+</em>
             </article>
           </div>
 

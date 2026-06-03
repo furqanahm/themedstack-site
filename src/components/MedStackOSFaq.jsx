@@ -20,6 +20,14 @@ const FAQS = [
     a: "You receive the paid Notion template link and duplicate it into your own workspace. Once duplicated, your copy is yours to edit and customise.",
   },
   {
+    q: "What are the founding cohort bonuses?",
+    a: "Founding buyers get access to the 1 July 2026 live AI setup workshop, 7-day setup support by email, future v1 updates while founding access is open, and the first 25 buyers can request a simple personal OS setup audit.",
+  },
+  {
+    q: "Is the setup audit a medical career consulting call?",
+    a: "No. It is a practical setup review for your MedStack OS workspace: what to add first, how to organise your current stage, and which AI workflow to run. It is not medical, legal, university, hospital or college advice.",
+  },
+  {
     q: "Is this medical advice?",
     a: "No. The MedStack is an educational and career-organisation system. It is not clinical advice, not patient-care guidance and not a replacement for university, hospital or college requirements.",
   },
