@@ -1,6 +1,8 @@
 import { SectionHeading, Icon } from "./atoms";
 
 const TOOLS = [
+  { icon: "cpu", color: "#1f9d62", title: "AI setup protocol", body: "Connect the duplicated OS to an AI assistant and use update-pack prompts safely." },
+  { icon: "bolt", color: "#3866e0", title: "MedStack Copilot", body: "Turn messy updates into tasks, CV evidence, research moves and application actions." },
   { icon: "node", color: "#1f9d62", title: "Research tracker", body: "Every project, supervisor and deadline in one pipeline." },
   { icon: "book", color: "#bd8526", title: "Publication tracker", body: "Track each paper from idea to in-print." },
   { icon: "layers", color: "#3866e0", title: "CV builder & progress", body: "A living CV scored against selection criteria." },
@@ -16,7 +18,7 @@ export default function WhatIsMedStackOS() {
     <section id="medstack-os" className="sec-light">
       <div className="container">
         <div className="section-kicker">
-          <span className="idx">01 — MEDSTACK OS</span>
+          <span className="idx">03 - MEDSTACK OS</span>
           <span className="rule" />
         </div>
 
@@ -28,29 +30,18 @@ export default function WhatIsMedStackOS() {
               <em style={{ color: "var(--green-deep)" }}>entire medical career.</em>
             </>
           }
-          kicker="A career workspace for medical students and junior doctors — track research, CV-building, rotations, conferences, applications and career progress in one place, instead of across a dozen scattered notes and spreadsheets."
+          kicker="A career workspace for medical students and junior doctors: track research, CV-building, rotations, conferences, applications, AI prompts and career progress in one place instead of across a dozen scattered notes and spreadsheets."
           maxWidth={760}
         />
 
-        <div style={{ marginTop: 56, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
+        <div className="os-tools-grid">
           {TOOLS.map((t) => (
             <div key={t.title} className="lcard">
               <span className="lchip" style={{ background: t.color }}>
                 <Icon name={t.icon} size={18} color="#fff" />
               </span>
-              <h3
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontWeight: 480,
-                  fontSize: 18,
-                  letterSpacing: "-0.012em",
-                  color: "#1c1f24",
-                  margin: "16px 0 0",
-                }}
-              >
-                {t.title}
-              </h3>
-              <p style={{ margin: "7px 0 0", fontSize: 13.5, lineHeight: 1.55, color: "#5b606a" }}>{t.body}</p>
+              <h3>{t.title}</h3>
+              <p>{t.body}</p>
             </div>
           ))}
         </div>

@@ -3,11 +3,15 @@ import { MEDSTACK_OS_CHECKOUT_URL } from "../config";
 
 const INCLUDES = [
   "Visual command dashboard",
+  "AI setup protocol",
+  "MedStack Copilot prompt layer",
+  "Daily task tracker",
   "Career roadmap",
   "Research and publication trackers",
   "Medical CV evidence builder",
   "Rotation and application systems",
-  "Setup guide and template vault",
+  "Australian internship and pathway hubs",
+  "Manuscript pre-submission reviewer",
 ];
 
 const PREVIEWS = [
@@ -45,7 +49,8 @@ export default function MedStackOSPurchase() {
 
             <p className="os-purchase-copy">
               A premium Notion command centre for medical students to organise rotations, research, CV evidence,
-              applications and deep work without rebuilding the same scattered system every term.
+              applications, pathway planning and AI-assisted weekly execution without rebuilding the same scattered
+              system every term.
             </p>
 
             <div className="os-price-card ticked">

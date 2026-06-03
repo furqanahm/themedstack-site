@@ -1,10 +1,19 @@
+import { Icon } from "./atoms";
+
 /* Video-style product tour frame. */
 
 const NOTES = [
-  { label: "Track research", style: { top: 24, left: 0 } },
-  { label: "Build your CV", style: { top: 86, right: 0 } },
-  { label: "Manage projects", style: { bottom: 112, left: 0 } },
-  { label: "Plan applications", style: { bottom: 34, right: 0 } },
+  { label: "Track research", style: { top: 18, left: 0 } },
+  { label: "Build your CV", style: { top: 76, right: 0 } },
+  { label: "Ask AI for next moves", style: { bottom: 114, left: 0 } },
+  { label: "Plan applications", style: { bottom: 38, right: 0 } },
+];
+
+const TOUR_POINTS = [
+  "Command centre",
+  "AI prompt layer",
+  "CV evidence",
+  "Research pipeline",
 ];
 
 export default function ProductDemo() {
@@ -20,6 +29,16 @@ export default function ProductDemo() {
       ))}
 
       <div className="demo-frame">
+        <div className="demo-topbar">
+          <div>
+            <span />
+            <span />
+            <span />
+          </div>
+          <strong>THE MEDSTACK OS / PRODUCT TOUR</strong>
+          <em>AI CAREER COMMAND SYSTEM</em>
+        </div>
+
         <div className="demo-screen">
           <video
             className="demo-video"
@@ -29,7 +48,7 @@ export default function ProductDemo() {
             muted
             loop
             playsInline
-            aria-label="29 second MedStack OS product preview"
+            aria-label="MedStack OS product preview"
           />
         </div>
 
@@ -42,6 +61,15 @@ export default function ProductDemo() {
           <span className="rx-label" style={{ marginLeft: 4 }}>
             MEDSTACK OS - LIVE PREVIEW
           </span>
+        </div>
+
+        <div className="demo-caption-grid">
+          {TOUR_POINTS.map((point) => (
+            <span key={point}>
+              <Icon name="check" size={11} color="var(--green)" strokeWidth={2.2} />
+              {point}
+            </span>
+          ))}
         </div>
       </div>
     </div>

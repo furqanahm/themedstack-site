@@ -33,7 +33,7 @@ export default function WaitlistCta() {
     <section id="waitlist" style={{ position: "relative" }}>
       <div className="container">
         <div className="section-kicker">
-          <span className="idx">05 — RESEARCHSTACK ACADEMY WAITLIST</span>
+          <span className="idx">08 - RESEARCHSTACK ACADEMY WAITLIST</span>
           <span className="rule" />
         </div>
 
