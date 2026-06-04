@@ -34,8 +34,6 @@ const TESTIMONIALS = [
 ];
 
 export default function MedStackTestimonials() {
-  const marqueeItems = [...TESTIMONIALS, ...TESTIMONIALS];
-
   return (
     <section id="testimonials" className="testimonial-section">
       <div className="container">
@@ -56,17 +54,25 @@ export default function MedStackTestimonials() {
 
       <div className="testimonial-marquee" aria-label="Student feedback carousel">
         <div className="testimonial-track">
-          {marqueeItems.map((item, index) => (
-            <article key={`${item.name}-${index}`} className="testimonial-card">
-              <div className="testimonial-mark">
-                <Icon name="spark" size={14} color="var(--green)" />
-              </div>
-              <blockquote>{item.quote}</blockquote>
-              <div className="testimonial-person">
-                <strong>{item.name}</strong>
-                <span>{item.role}</span>
-              </div>
-            </article>
+          {[0, 1].map((setIndex) => (
+            <div
+              className="testimonial-set"
+              key={setIndex}
+              aria-hidden={setIndex === 1 ? "true" : undefined}
+            >
+              {TESTIMONIALS.map((item, index) => (
+                <article key={`${item.name}-${setIndex}-${index}`} className="testimonial-card">
+                  <div className="testimonial-mark">
+                    <Icon name="spark" size={14} color="var(--green)" />
+                  </div>
+                  <blockquote>{item.quote}</blockquote>
+                  <div className="testimonial-person">
+                    <strong>{item.name}</strong>
+                    <span>{item.role}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
           ))}
         </div>
       </div>

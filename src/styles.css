@@ -981,9 +981,13 @@ input:focus, textarea:focus, select:focus {
 .testimonial-track {
   display: flex;
   width: max-content;
-  gap: 16px;
-  padding: 0 16px;
   animation: testimonialMarquee 42s linear infinite;
+}
+.testimonial-set {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  padding-right: 16px;
 }
 .testimonial-card {
   flex: 0 0 min(430px, 82vw);
@@ -1033,7 +1037,7 @@ input:focus, textarea:focus, select:focus {
 
 @keyframes testimonialMarquee {
   from { transform: translateX(0); }
-  to { transform: translateX(calc(-50% - 8px)); }
+  to { transform: translateX(-50%); }
 }
 
 .sec-light {
