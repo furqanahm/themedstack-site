@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 400" role="img" aria-labelledby="title desc">
+  <title id="title">The MedStack OS cover</title>
+  <desc id="desc">Dark MedStack OS cover with green ECG command line.</desc>
+  <defs>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#17212A" stroke-width="1" opacity=".55"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="fade" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#101820"/>
+      <stop offset=".55" stop-color="#0B0F12"/>
+      <stop offset="1" stop-color="#07120E"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="2000" height="400" fill="#080D10"/>
+  <rect x="42" y="8" width="1916" height="392" rx="34" fill="url(#fade)" stroke="#26313A" stroke-width="3"/>
+  <rect x="42" y="8" width="1916" height="392" rx="34" fill="url(#grid)" opacity=".62"/>
+
+  <line x1="86" y1="55" x2="86" y2="345" stroke="#43C68A" stroke-width="5" stroke-linecap="round"/>
+  <line x1="1914" y1="55" x2="1914" y2="345" stroke="#43C68A" stroke-width="5" stroke-linecap="round"/>
+
+  <text x="150" y="112" fill="#F7F4EE" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="42" font-weight="900" letter-spacing="2">
+    THE MEDSTACK OS
+  </text>
+  <text x="150" y="160" fill="#D8DEE6" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="20" letter-spacing="10">
+    MEDICAL CAREER COMMAND SYSTEM
+  </text>
+
+  <text x="1652" y="112" fill="#43C68A" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="20" letter-spacing="10">
+    LIVE CAREER OS
+  </text>
+  <text x="1420" y="160" fill="#F7F4EE" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="16" letter-spacing="9">
+    CV / RESEARCH / ROTATIONS / APPLICATIONS
+  </text>
+
+  <polyline
+    points="135,225 310,225 336,225 358,142 398,305 440,95 486,225 640,225 664,225 690,182 730,276 766,225 930,225 955,225 982,88 1028,304 1086,225 1270,225 1292,225 1318,174 1360,266 1396,225 1615,225 1642,225 1676,190 1710,272 1746,225 1865,225"
+    fill="none"
+    stroke="#43C68A"
+    stroke-width="10"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+    filter="url(#glow)"
+  />
+</svg>
